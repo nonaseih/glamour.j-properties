@@ -2,6 +2,10 @@ import { useState, useEffect, useRef } from 'react'
 import { Users, Eye, ShieldCheck, Zap, Gem, MapPin } from 'lucide-react'
 import { properties, values, formatPrice, WA_BASE } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
+import featVideo1 from '../assets/Properties Videos/Featured 1.mp4'
+import featVideo2 from '../assets/Properties Videos/Featured 2.mp4'
+
+const FEAT_VIDEOS = [featVideo1, featVideo2]
 
 const NAV_LINKS = [
   { id: 'home',         label: 'Home' },
@@ -61,7 +65,7 @@ export default function HomePage({ navigate, page }) {
   const [navScrolled, setNavScrolled] = useState(false)
   const [videoRevealed, setVideoRevealed] = useState(false)
   const spotlightRef = useRef(null)
-  const videoRef = useRef(null)
+  const videoRefs = [useRef(null), useRef(null)]
 
   useEffect(() => {
     const onScroll = () => setNavScrolled(window.scrollY > 72)
@@ -76,7 +80,7 @@ export default function HomePage({ navigate, page }) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setVideoRevealed(true)
-          if (videoRef.current) videoRef.current.play().catch(() => {})
+          videoRefs.forEach(r => r.current?.play().catch(() => {}))
           obs.disconnect()
         }
       },
@@ -364,7 +368,8 @@ export default function HomePage({ navigate, page }) {
             {/* Video side */}
             <div className={`spotlight-media${videoRevealed ? ' spotlight-media--revealed' : ''}`}>
               <video
-                ref={idx === 0 ? videoRef : null}
+                ref={videoRefs[idx]}
+                src={FEAT_VIDEOS[idx]}
                 className="spotlight-video"
                 muted
                 loop
@@ -397,18 +402,16 @@ export default function HomePage({ navigate, page }) {
 
               <div className="spotlight-price">
                 {formatPrice(prop.price)}
-                <span>/yr</span>
+                <span>{prop.priceNote ?? '/yr'}</span>
               </div>
 
               <div className="spotlight-chips">
-                <span className="spotlight-chip">{prop.bedrooms} Beds</span>
-                <span className="spotlight-chip">{prop.bathrooms} Baths</span>
-                <span className="spotlight-chip">{prop.sqm} sqm</span>
+                {(prop.highlights ?? [`${prop.bedrooms} Beds`, `${prop.bathrooms} Baths`, `${prop.sqm} sqm`]).map(h => (
+                  <span key={h} className="spotlight-chip">{h}</span>
+                ))}
               </div>
 
-              <p className="spotlight-desc">
-                {prop.description.slice(0, 145)}…
-              </p>
+              <p className="spotlight-desc">{prop.description}</p>
 
               <button
                 className="spotlight-view-btn"
