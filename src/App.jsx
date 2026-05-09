@@ -31,7 +31,7 @@ export default function App() {
   return (
     <div className="site">
       <Nav page={page} navigate={navigate} />
-      <main>{pages[page]}</main>
+      <main style={{ paddingTop: page !== 'home' ? 'var(--nav-h)' : 0 }}>{pages[page]}</main>
       <Footer navigate={navigate} />
       <WhatsAppFloat />
     </div>

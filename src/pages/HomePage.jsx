@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PropertyCard from '../components/PropertyCard'
 import { properties, values, formatPrice } from '../data'
+import heroImg from '../assets/JAY hero image.jpg'
 
 const STATS = [
   { num: '200+', label: 'Homes Let' },
@@ -46,7 +47,8 @@ export default function HomePage({ navigate }) {
     <>
       {/* ── Hero ── */}
       <section className="hero">
-        <div className="hero__bg" />
+        <img className="hero__photo" src={heroImg} alt="" aria-hidden="true" />
+        <div className="hero__overlay" />
         <div className="container">
           <div className="hero__content">
             <div className="hero__eyebrow">
