@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import PropertyCard from '../components/PropertyCard'
-import { properties, values, formatPrice } from '../data'
+import { properties, values } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
 
 const STATS = [
@@ -35,13 +34,7 @@ const getValueIcon = (v, i) => {
 }
 
 export default function HomePage({ navigate }) {
-  const [search, setSearch] = useState({ type: '', location: '', budget: '' })
   const featured = properties.filter((p) => p.featured)
-
-  const handleSearch = (e) => {
-    e.preventDefault()
-    navigate('rentals')
-  }
 
   return (
     <>
@@ -49,16 +42,18 @@ export default function HomePage({ navigate }) {
       <section className="hero">
         <img className="hero__photo" src={heroImg} alt="" aria-hidden="true" />
         <div className="hero__overlay" />
+
+        {/* Left content */}
         <div className="container">
           <div className="hero__content">
             <div className="hero__eyebrow">
               <div className="hero__eyebrow-dot" />
-              <span className="label label--light">Premium Abuja Rentals</span>
+              <span className="label label--light">Discover Premium Abuja Rentals</span>
             </div>
 
             <h1 className="hero__title">
-              Find Your Perfect<br />
-              <em>Home in Abuja</em>
+              Find luxury living<br />
+              <em>in the heart of Abuja</em>
             </h1>
 
             <p className="hero__subtitle">
@@ -70,64 +65,57 @@ export default function HomePage({ navigate }) {
               <button className="btn btn-primary btn-lg" onClick={() => navigate('rentals')}>
                 Browse Properties
               </button>
-              <button className="btn btn-outline-white btn-lg" onClick={() => navigate('agents')}>
-                Meet Our Agents
+              <button className="btn btn-outline-white btn-lg" onClick={() => navigate('contact')}>
+                Talk to an Agent
               </button>
             </div>
-
-            <form className="hero__search-box" onSubmit={handleSearch}>
-              <div className="hero__search-field">
-                <div className="hero__search-label">Property Type</div>
-                <select
-                  className="hero__search-select"
-                  value={search.type}
-                  onChange={(e) => setSearch({ ...search, type: e.target.value })}
-                >
-                  <option value="">Any Type</option>
-                  <option>Apartment</option>
-                  <option>Duplex</option>
-                  <option>Bungalow</option>
-                  <option>Villa</option>
-                  <option>Semi-Detached</option>
-                  <option>Mansion</option>
-                </select>
-              </div>
-              <div className="hero__search-field">
-                <div className="hero__search-label">Location</div>
-                <select
-                  className="hero__search-select"
-                  value={search.location}
-                  onChange={(e) => setSearch({ ...search, location: e.target.value })}
-                >
-                  <option value="">Any Location</option>
-                  <option>Maitama</option>
-                  <option>Asokoro</option>
-                  <option>Jahi</option>
-                  <option>Wuse 2</option>
-                  <option>Gwarinpa</option>
-                  <option>Garki</option>
-                </select>
-              </div>
-              <div className="hero__search-field">
-                <div className="hero__search-label">Max Budget / Year</div>
-                <select
-                  className="hero__search-select"
-                  value={search.budget}
-                  onChange={(e) => setSearch({ ...search, budget: e.target.value })}
-                >
-                  <option value="">Any Budget</option>
-                  <option>Under ₦6M</option>
-                  <option>₦6M – ₦12M</option>
-                  <option>₦12M – ₦20M</option>
-                  <option>₦20M – ₦30M</option>
-                  <option>Above ₦30M</option>
-                </select>
-              </div>
-              <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-end', whiteSpace: 'nowrap' }}>
-                Search
-              </button>
-            </form>
           </div>
+        </div>
+
+        {/* Floating stat cards */}
+        <div className="hero-cards">
+          <div className="hero-card hero-card--dark hero-card--1">
+            <div className="hero-card__label">
+              <span className="hero-card__dot" />
+              Homes Let
+            </div>
+            <div className="hero-card__num">200+</div>
+            <div className="hero-card__sub">Premium properties across Abuja FCT</div>
+          </div>
+
+          <div className="hero-card hero-card--dark hero-card--2">
+            <div className="hero-card__label">
+              <span className="hero-card__dot" />
+              Client Satisfaction
+            </div>
+            <div className="hero-card__num">98%</div>
+            <div className="hero-card__sub">Families trust us with 5-star reviews</div>
+          </div>
+
+          <div className="hero-card hero-card--light hero-card--3">
+            <div className="hero-card__label">Years in Market</div>
+            <div className="hero-card__num">12+</div>
+            <div className="hero-card__sub">
+              <strong>4</strong> Expert agents on the ground
+            </div>
+          </div>
+        </div>
+
+        {/* Star rating */}
+        <div className="hero-rating">
+          <div className="hero-rating__stars">★★★★★</div>
+          <div className="hero-rating__num">4.9</div>
+          <div className="hero-rating__sub">Based on 200+ client reviews</div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="hero-scroll">
+          <div className="hero-scroll__ring">
+            <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
+              <path d="M4.5 1v7M1.5 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+          Scroll to explore
         </div>
       </section>
 

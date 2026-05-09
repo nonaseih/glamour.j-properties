@@ -40,15 +40,17 @@ export default function Nav({ page, navigate }) {
           </button>
 
           <div className="nav__links">
-            {LINKS.map((l) => (
-              <button
-                key={l.id}
-                className={`nav__link${page === l.id ? ' nav__link--active' : ''}`}
-                onClick={() => go(l.id)}
-              >
-                {l.label}
-              </button>
-            ))}
+            <div className="nav__pill">
+              {LINKS.map((l) => (
+                <button
+                  key={l.id}
+                  className={`nav__link${page === l.id ? ' nav__link--active' : ''}`}
+                  onClick={() => go(l.id)}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           <button
