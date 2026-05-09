@@ -422,22 +422,46 @@ export default function HomePage({ navigate, page }) {
         ))}
       </div>
 
-      {/* ── CTA Banner ── */}
-      <section className="cta-banner">
-        <div className="container">
-          <p className="label label--light" style={{ marginBottom: '0.75rem' }}>Ready to Move?</p>
-          <h2>Your Dream Home is One Application Away</h2>
-          <p>Start your rental application today — it only takes a few minutes and our team will guide you through every step.</p>
-          <div className="cta-banner__actions">
-            <button className="btn btn-primary btn-lg" onClick={() => navigate('apply')}>
-              Apply to Rent
-            </button>
-            <button className="btn btn-outline-white btn-lg" onClick={() => navigate('contact')}>
-              Talk to an Agent
-            </button>
+      {/* ── Stats Reel ── */}
+      <div className="vidband-stage">
+        <div className="vidband">
+          <video className="vidband__video" autoPlay muted loop playsInline />
+          <div className="vidband__overlay" />
+          <div className="vidband__inner">
+
+            <div className="vidband__text">
+              <div className="vidband__eyebrow">
+                <div className="vidband__eyebrow-dot" />
+                <span>Track Record</span>
+              </div>
+              <h2 className="vidband__h2">
+                Built on<br />
+                <em>results.</em>
+              </h2>
+              <p className="vidband__sub">
+                Since 2012, we've helped over a thousand families settle into the right home
+                across every district of the Federal Capital Territory.
+              </p>
+            </div>
+
+            <div className="vidband__stats">
+              {[
+                { num: '200+',   label: 'Homes Let',        sub: 'across Abuja FCT' },
+                { num: '1,000+', label: 'Tenants Placed',   sub: 'since 2012'       },
+                { num: '12+',    label: 'Years Active',      sub: 'in the market'    },
+                { num: '98%',    label: 'Satisfaction Rate', sub: 'tenant surveys'   },
+              ].map((s) => (
+                <div key={s.label} className="vidband__stat">
+                  <div className="vidband__stat-num">{s.num}</div>
+                  <div className="vidband__stat-label">{s.label}</div>
+                  <div className="vidband__stat-sub">{s.sub}</div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
-      </section>
+      </div>
     </>
   )
 }
