@@ -21,6 +21,7 @@ export default function Nav({ page, navigate }) {
   }, [])
 
   const solid = page !== 'home' || scrolled
+  const hidden = page === 'home' && !scrolled
 
   const go = (id) => {
     navigate(id)
@@ -29,7 +30,7 @@ export default function Nav({ page, navigate }) {
 
   return (
     <>
-      <nav className={`nav${solid ? ' nav--solid' : ''}`}>
+      <nav className={`nav${solid ? ' nav--solid' : ''}${hidden ? ' nav--hidden' : ''}`}>
         <div className="nav__inner">
           <button className="nav__logo" onClick={() => go('home')}>
             <HouseLogo size={32} />
