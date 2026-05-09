@@ -338,9 +338,7 @@ p { line-height: 1.7; }
 }
 
 .nav--hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-100%);
+  display: none;
 }
 
 .nav--solid {
