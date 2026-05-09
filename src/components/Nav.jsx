@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import HouseLogo from './HouseLogo'
 
 const LINKS = [
@@ -12,16 +12,6 @@ const LINKS = [
 
 export default function Nav({ page, navigate }) {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 72)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  const solid = page !== 'home' || scrolled
-  const hidden = page === 'home' && !scrolled
 
   const go = (id) => {
     navigate(id)
@@ -30,7 +20,7 @@ export default function Nav({ page, navigate }) {
 
   return (
     <>
-      <nav className={`nav${solid ? ' nav--solid' : ''}${hidden ? ' nav--hidden' : ''}`}>
+      <nav className="nav nav--solid">
         <div className="nav__inner">
           <button className="nav__logo" onClick={() => go('home')}>
             <HouseLogo size={32} />
