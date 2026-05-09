@@ -4,8 +4,9 @@ import { properties, values, formatPrice, WA_BASE } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
 import featVideo1 from '../assets/Properties Videos/Featured 1.mp4'
 import featVideo2 from '../assets/Properties Videos/Featured 2.mp4'
+import featVideo3 from '../assets/Properties Videos/Featured 3.mp4'
 
-const FEAT_VIDEOS = [featVideo1, featVideo2]
+const FEAT_VIDEOS = [featVideo1, featVideo2, featVideo3]
 
 const NAV_LINKS = [
   { id: 'home',         label: 'Home' },
@@ -65,7 +66,7 @@ export default function HomePage({ navigate, page }) {
   const [navScrolled, setNavScrolled] = useState(false)
   const [videoRevealed, setVideoRevealed] = useState(false)
   const spotlightRef = useRef(null)
-  const videoRefs = [useRef(null), useRef(null)]
+  const videoRefs = [useRef(null), useRef(null), useRef(null)]
 
   useEffect(() => {
     const onScroll = () => setNavScrolled(window.scrollY > 72)
@@ -362,14 +363,14 @@ export default function HomePage({ navigate, page }) {
 
       {/* ── Featured Spotlight ── */}
       <div className="spotlight-stage" ref={spotlightRef}>
-        {featured.map((prop, idx) => (
-          <div key={prop.id} className="spotlight-wrap">
 
-            {/* Video side */}
+        {/* Feature 1 — large landscape card */}
+        {featured[0] && (
+          <div className="spotlight-wrap">
             <div className={`spotlight-media${videoRevealed ? ' spotlight-media--revealed' : ''}`}>
               <video
-                ref={videoRefs[idx]}
-                src={FEAT_VIDEOS[idx]}
+                ref={videoRefs[0]}
+                src={FEAT_VIDEOS[0]}
                 className="spotlight-video"
                 muted
                 loop
@@ -385,51 +386,98 @@ export default function HomePage({ navigate, page }) {
                 <span className="spotlight-media__hint">Auto-plays on reveal</span>
               </div>
             </div>
-
-            {/* Info side */}
             <div className="spotlight-info">
               <div className="spotlight-eyebrow">
                 <div className="spotlight-eyebrow__dot" />
                 <span>Featured Property</span>
               </div>
-
-              <h2 className="spotlight-h2">{prop.title}</h2>
-
+              <h2 className="spotlight-h2">{featured[0].title}</h2>
               <div className="spotlight-loc">
                 <MapPin size={13} strokeWidth={1.5} />
-                {prop.location}
+                {featured[0].location}
               </div>
-
               <div className="spotlight-price">
-                {formatPrice(prop.price)}
-                <span>{prop.priceNote ?? '/yr'}</span>
+                {formatPrice(featured[0].price)}
+                <span>{featured[0].priceNote ?? '/yr'}</span>
               </div>
-
               <div className="spotlight-chips">
-                {(prop.highlights ?? [`${prop.bedrooms} Beds`, `${prop.bathrooms} Baths`, `${prop.sqm} sqm`]).map(h => (
+                {(featured[0].highlights ?? [`${featured[0].bedrooms} Beds`, `${featured[0].bathrooms} Baths`, `${featured[0].sqm} sqm`]).map(h => (
                   <span key={h} className="spotlight-chip">{h}</span>
                 ))}
               </div>
-
-              <p className="spotlight-desc">{prop.description}</p>
-
-              <button
-                className="spotlight-view-btn"
-                onClick={() => navigate('property', prop.id)}
-              >
+              <p className="spotlight-desc">{featured[0].description}</p>
+              <button className="spotlight-view-btn" onClick={() => navigate('property', featured[0].id)}>
                 View Property →
               </button>
             </div>
-
           </div>
-        ))}
+        )}
+
+        {/* Features 2 & 3 — duo of portrait cards */}
+        {featured.length > 1 && (
+          <div className="spotlight-duo">
+            {featured.slice(1).map((prop, i) => {
+              const idx = i + 1
+              return (
+                <div key={prop.id} className="spotlight-card-sm">
+                  <div className={`spotlight-media-sm${videoRevealed ? ' spotlight-media--revealed' : ''}`}>
+                    {FEAT_VIDEOS[idx] ? (
+                      <video
+                        ref={videoRefs[idx]}
+                        src={FEAT_VIDEOS[idx]}
+                        className="spotlight-video"
+                        muted
+                        loop
+                        playsInline
+                      />
+                    ) : (
+                      <div className="spotlight-media-sm__placeholder" />
+                    )}
+                    <div className="spotlight-media__ui">
+                      <span className="spotlight-media__tag">Property Tour</span>
+                      {FEAT_VIDEOS[idx] && (
+                        <button className="spotlight-media__play" aria-label="Play tour">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                  <div className="spotlight-info-sm">
+                    <div className="spotlight-eyebrow">
+                      <div className="spotlight-eyebrow__dot" />
+                      <span>Featured Property</span>
+                    </div>
+                    <h3 className="spotlight-h3-sm">{prop.title}</h3>
+                    <div className="spotlight-loc">
+                      <MapPin size={13} strokeWidth={1.5} />
+                      {prop.location}
+                    </div>
+                    <div className="spotlight-price-sm">
+                      {formatPrice(prop.price)}
+                      <span>{prop.priceNote ?? '/yr'}</span>
+                    </div>
+                    <div className="spotlight-chips">
+                      {(prop.highlights ?? [`${prop.bedrooms} Beds`]).map(h => (
+                        <span key={h} className="spotlight-chip">{h}</span>
+                      ))}
+                    </div>
+                    <button className="spotlight-view-btn" onClick={() => navigate('property', prop.id)}>
+                      View Property →
+                    </button>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
+
       </div>
 
       {/* ── Stats Reel ── */}
       <div className="vidband-stage">
         <div className="vidband">
-          <video className="vidband__video" autoPlay muted loop playsInline />
-          <div className="vidband__overlay" />
           <div className="vidband__inner">
 
             <div className="vidband__text">
