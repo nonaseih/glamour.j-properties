@@ -19,7 +19,7 @@ export default function App() {
   }
 
   const pages = {
-    home: <HomePage navigate={navigate} />,
+    home: <HomePage navigate={navigate} page={page} />,
     agents: <AgentsPage navigate={navigate} />,
     rentals: <RentalsPage navigate={navigate} />,
     contact: <ContactPage navigate={navigate} />,

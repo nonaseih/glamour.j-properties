@@ -2,6 +2,14 @@ import PropertyCard from '../components/PropertyCard'
 import { properties, values } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
 
+const NAV_LINKS = [
+  { id: 'home',         label: 'Home' },
+  { id: 'rentals',      label: 'Properties' },
+  { id: 'agents',       label: 'Agents' },
+  { id: 'testimonials', label: 'Reviews' },
+  { id: 'faq',          label: 'FAQ' },
+]
+
 const STATS = [
   { num: '200+', label: 'Homes Let' },
   { num: '12+', label: 'Years Experience' },
@@ -33,89 +41,179 @@ const getValueIcon = (v, i) => {
   return VALUE_ICONS.Q
 }
 
-export default function HomePage({ navigate }) {
+function LogoMark() {
+  return (
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+      <circle cx="15" cy="15" r="13.5" stroke="rgba(255,255,255,0.6)" strokeWidth="1.5"/>
+      <clipPath id="lm-half">
+        <rect x="0" y="0" width="15" height="30"/>
+      </clipPath>
+      <circle cx="15" cy="15" r="13.5" fill="white" clipPath="url(#lm-half)"/>
+    </svg>
+  )
+}
+
+function ProgressRing({ pct = 98, r = 26 }) {
+  const circ = 2 * Math.PI * r
+  const dash = (pct / 100) * circ
+  return (
+    <svg width={r * 2 + 8} height={r * 2 + 8} viewBox={`0 0 ${r * 2 + 8} ${r * 2 + 8}`} style={{ transform: 'rotate(-90deg)' }}>
+      <circle cx={r + 4} cy={r + 4} r={r} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="3"/>
+      <circle
+        cx={r + 4} cy={r + 4} r={r}
+        fill="none"
+        stroke="rgba(255,255,255,0.65)"
+        strokeWidth="3"
+        strokeDasharray={`${dash} ${circ}`}
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+export default function HomePage({ navigate, page }) {
   const featured = properties.filter((p) => p.featured)
+  const currentPage = page || 'home'
 
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="hero">
-        <img className="hero__photo" src={heroImg} alt="" aria-hidden="true" />
-        <div className="hero__overlay" />
+      {/* ── Hero Stage ── */}
+      <section className="hero-stage">
+        <div className="hero">
+          <img className="hero-bg" src={heroImg} alt="" aria-hidden="true" />
+          <div className="hero-vignette" />
 
-        {/* Left content */}
-        <div className="container">
-          <div className="hero__content">
-            <div className="hero__eyebrow">
-              <div className="hero__eyebrow-dot" />
-              <span className="label label--light">Discover Premium Abuja Rentals</span>
+          {/* ── Internal Nav ── */}
+          <nav className="hero-nav">
+            <button className="hero-nav__logo" onClick={() => navigate('home')}>
+              <LogoMark />
+              <div className="hero-nav__logo-text">
+                <span className="hero-nav__logo-name">JAY. G&trade;</span>
+                <span className="hero-nav__logo-sub">Properties &amp; Rentals Co.</span>
+              </div>
+            </button>
+
+            <div className="hero-nav__center">
+              <div className="hero-nav__pill">
+                {NAV_LINKS.map((l) => (
+                  <button
+                    key={l.id}
+                    className={`hero-nav__link${currentPage === l.id ? ' hero-nav__link--active' : ''}`}
+                    onClick={() => navigate(l.id)}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            <h1 className="hero__title">
-              Find luxury living<br />
-              <em>in the heart of Abuja</em>
+            <div className="hero-nav__ctas">
+              <button className="hero-nav__blog" onClick={() => navigate('contact')}>
+                Contact
+              </button>
+              <button className="hero-nav__tour" onClick={() => navigate('apply')}>
+                Book a Tour
+              </button>
+            </div>
+          </nav>
+
+          {/* ── Headline ── */}
+          <div className="hero-headline">
+            <div className="hero-headline__eyebrow">
+              <div className="hero-headline__eyebrow-dot" />
+              <span className="hero-headline__eyebrow-label">Discover Your Next Home</span>
+            </div>
+            <h1>
+              Find your perfect<br />
+              <em>Abuja rental</em> —<br />
+              homes worth living in.
             </h1>
-
-            <p className="hero__subtitle">
-              Transparent, fast, and professional residential rentals across
-              Maitama, Jahi, Wuse, Asokoro, and beyond.
+            <p className="hero-headline__sub">
+              Browse hand-picked rentals across Maitama, Jahi, Asokoro and beyond.
+              Tour fast, apply online, move in without the hassle.
             </p>
+          </div>
 
-            <div className="hero__actions">
-              <button className="btn btn-primary btn-lg" onClick={() => navigate('rentals')}>
-                Browse Properties
-              </button>
-              <button className="btn btn-outline-white btn-lg" onClick={() => navigate('contact')}>
-                Talk to an Agent
-              </button>
+          {/* ── Trust / Rating ── */}
+          <div className="hero-trust">
+            <div className="hero-trust__stars">
+              {[...Array(5)].map((_, i) => <span key={i}>★</span>)}
+            </div>
+            <div className="hero-trust__score-row">
+              <span className="hero-trust__score">4.9</span>
+            </div>
+            <div className="hero-trust__sub">/&nbsp;200+ Tenant reviews</div>
+          </div>
+
+          {/* ── Stat Cards ── */}
+          <div className="hero-stats">
+            {/* Card 1 — glass: Homes Let */}
+            <div className="hero-stat hero-stat--glass">
+              <div className="hero-stat__thumb-row">
+                <div className="hero-stat__thumb">Photo</div>
+                <span className="hero-stat__label">Homes Let</span>
+              </div>
+              <div className="hero-stat__num">200+</div>
+              <div className="hero-stat__sub">Premium properties across Abuja FCT</div>
+            </div>
+
+            {/* Card 2 — dark: Tenant Trust */}
+            <div className="hero-stat hero-stat--dark">
+              <div className="hero-stat__ring-row">
+                <ProgressRing pct={98} r={22} />
+                <div className="hero-stat__chip">↗</div>
+              </div>
+              <span className="hero-stat__label">Tenant Trust</span>
+              <div className="hero-stat__num">98%</div>
+              <div className="hero-stat__sub">tenants report a smooth move-in — backed by quick-response support.</div>
+            </div>
+
+            {/* Card 3 — glass: Reach */}
+            <div className="hero-stat hero-stat--glass" style={{ flexDirection: 'row', gap: '12px' }}>
+              <div className="hero-stat__dual">
+                <div className="hero-stat__dual-item">
+                  <span className="hero-stat__dual-num hero-stat__dual-num--lg">1,000+</span>
+                  <span className="hero-stat__dual-label">Tenants Placed</span>
+                </div>
+                <div className="hero-stat__dual-item">
+                  <span className="hero-stat__dual-num hero-stat__dual-num--sm">12+</span>
+                  <span className="hero-stat__dual-label">Years in Market</span>
+                </div>
+              </div>
+              <div className="hero-stat__peach-chip">↗</div>
+            </div>
+
+            {/* Card 4 — white: Rating + Testimonial */}
+            <div className="hero-stat hero-stat--white">
+              <div className="hero-stat__top-row">
+                <div className="hero-stat__num" style={{ marginTop: 0 }}>4.9★</div>
+                <span className="hero-stat__tag">Top rated</span>
+              </div>
+              <p className="hero-stat__quote">
+                "Moving into our Maitama home was seamless — Jay. G handled everything."
+              </p>
+              <div className="hero-stat__author">
+                <div className="hero-stat__avatar">AM</div>
+                <span className="hero-stat__author-name">Amara M.</span>
+                <span className="hero-stat__author-stars">★★★★★</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Floating stat cards */}
-        <div className="hero-cards">
-          <div className="hero-card hero-card--dark hero-card--1">
-            <div className="hero-card__label">
-              <span className="hero-card__dot" />
-              Homes Let
+          {/* ── Footer Row ── */}
+          <div className="hero-foot">
+            <div className="hero-foot__scroll">
+              <div className="hero-foot__scroll-dot" />
+              Scroll to explore
             </div>
-            <div className="hero-card__num">200+</div>
-            <div className="hero-card__sub">Premium properties across Abuja FCT</div>
-          </div>
-
-          <div className="hero-card hero-card--dark hero-card--2">
-            <div className="hero-card__label">
-              <span className="hero-card__dot" />
-              Client Satisfaction
-            </div>
-            <div className="hero-card__num">98%</div>
-            <div className="hero-card__sub">Families trust us with 5-star reviews</div>
-          </div>
-
-          <div className="hero-card hero-card--light hero-card--3">
-            <div className="hero-card__label">Years in Market</div>
-            <div className="hero-card__num">12+</div>
-            <div className="hero-card__sub">
-              <strong>4</strong> Expert agents on the ground
+            <button className="hero-foot__center-btn" onClick={() => navigate('faq')}>
+              How It Works
+            </button>
+            <div className="hero-foot__icons">
+              <button className="hero-foot__icon-btn" aria-label="Help">?</button>
+              <button className="hero-foot__icon-btn" aria-label="Browse properties" onClick={() => navigate('rentals')}>→</button>
             </div>
           </div>
-        </div>
-
-        {/* Star rating */}
-        <div className="hero-rating">
-          <div className="hero-rating__stars">★★★★★</div>
-          <div className="hero-rating__num">4.9</div>
-          <div className="hero-rating__sub">Based on 200+ client reviews</div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="hero-scroll">
-          <div className="hero-scroll__ring">
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
-              <path d="M4.5 1v7M1.5 5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-          Scroll to explore
         </div>
       </section>
 
