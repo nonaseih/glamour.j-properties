@@ -44,6 +44,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font: inherit; }
@@ -1480,24 +1489,24 @@ p { line-height: 1.7; }
 
 .about-card {
   border-radius: var(--hero-radius);
-  background: var(--dark);
+  background: #1E1008;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 540px;
 }
 
+/* ── walnut tones pulled from the hero image wood louvers ── */
 .about-visual {
   position: relative;
-  background: var(--dark-3);
+  background: #2A1810;
   min-height: 400px;
 }
 
 .about-visual__img {
   position: absolute;
   inset: 0;
-  border-radius: 0;
-  background: var(--dark-2);
+  background: #3D2416;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1516,16 +1525,17 @@ p { line-height: 1.7; }
   flex: 1;
   padding: 16px 18px;
   border-radius: 16px;
-  border: 1.5px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(237,228,212,0.18);
+  background: rgba(237,228,212,0.08);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  color: #fff;
+  color: #EDE4D4;
 }
 
+/* ── terracotta accent — from the cushions in the image ── */
 .about-chip--peach {
-  background: rgba(251,229,214,0.12);
-  border-color: rgba(251,229,214,0.25);
+  background: rgba(192,98,64,0.22);
+  border-color: rgba(192,98,64,0.48);
 }
 
 .about-chip__num {
@@ -1541,16 +1551,18 @@ p { line-height: 1.7; }
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: rgba(237,228,212,0.5);
   margin-top: 5px;
 }
 
+/* ── travertine/ivory — from the floor tiles & sofa ── */
 .about-content {
   padding: 56px 52px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #fff;
+  background: #EDE4D4;
+  color: #1E1008;
 }
 
 .about-eyebrow {
@@ -1565,8 +1577,8 @@ p { line-height: 1.7; }
   height: 14px;
   border-radius: 50%;
   flex-shrink: 0;
-  border: 1.5px solid rgba(255,255,255,0.6);
-  background: linear-gradient(to right, rgba(255,255,255,0.85) 50%, transparent 50%);
+  border: 1.5px solid rgba(30,16,8,0.35);
+  background: linear-gradient(to right, rgba(30,16,8,0.65) 50%, transparent 50%);
 }
 
 .about-eyebrow span {
@@ -1575,7 +1587,7 @@ p { line-height: 1.7; }
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  color: rgba(30,16,8,0.42);
 }
 
 .about-h2 {
@@ -1584,15 +1596,18 @@ p { line-height: 1.7; }
   font-weight: 400 !important;
   line-height: 1.08 !important;
   letter-spacing: -0.01em !important;
-  color: #fff;
+  color: #1E1008;
   margin-bottom: 1.25rem;
 }
 
-.about-h2 em { font-style: italic; }
+.about-h2 em {
+  font-style: italic;
+  color: #C06240;
+}
 
 .about-body {
   font-size: 0.92rem;
-  color: rgba(255,255,255,0.58);
+  color: rgba(30,16,8,0.58);
   line-height: 1.7;
   margin-bottom: 0.75rem;
   max-width: 420px;
@@ -1602,8 +1617,8 @@ p { line-height: 1.7; }
   display: flex;
   gap: 2rem;
   padding: 1.25rem 0;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(30,16,8,0.1);
+  border-bottom: 1px solid rgba(30,16,8,0.1);
   margin: 1.5rem 0;
 }
 
@@ -1611,7 +1626,7 @@ p { line-height: 1.7; }
   font-family: var(--font-display);
   font-size: 1.8rem;
   font-weight: 700;
-  color: #fff;
+  color: #1E1008;
   line-height: 1;
 }
 
@@ -1621,7 +1636,7 @@ p { line-height: 1.7; }
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: rgba(30,16,8,0.42);
   margin-top: 5px;
 }
 
@@ -1638,14 +1653,14 @@ p { line-height: 1.7; }
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  background: var(--accent-yellow);
-  color: var(--ink);
+  background: #C06240;
+  color: #EDE4D4;
   border-radius: 999px;
   padding: 0.6rem 1.4rem;
   transition: filter var(--transition);
 }
 
-.about-btn-primary:hover { filter: brightness(1.06); }
+.about-btn-primary:hover { filter: brightness(1.1); }
 
 .about-btn-ghost {
   font-family: var(--font-display);
@@ -1653,11 +1668,11 @@ p { line-height: 1.7; }
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: rgba(30,16,8,0.42);
   transition: color var(--transition);
 }
 
-.about-btn-ghost:hover { color: #fff; }
+.about-btn-ghost:hover { color: #1E1008; }
 
 .about {
   background: var(--paper);
@@ -1726,7 +1741,7 @@ p { line-height: 1.7; }
 
 .values-wrap {
   border-radius: 24px;
-  background: var(--dark);
+  background: transparent;
   display: grid;
   grid-template-columns: 300px 1fr;
   overflow: hidden;
@@ -1738,7 +1753,8 @@ p { line-height: 1.7; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-right: 1px solid rgba(255,255,255,0.06);
+  background: #1E1008;
+  border-right: 1px solid rgba(237,228,212,0.08);
 }
 
 .values-eyebrow {
@@ -1752,8 +1768,8 @@ p { line-height: 1.7; }
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: linear-gradient(to right, rgba(255,255,255,0.85) 50%, transparent 50%);
-  border: 1.5px solid rgba(255,255,255,0.6);
+  background: linear-gradient(to right, rgba(237,228,212,0.85) 50%, transparent 50%);
+  border: 1.5px solid rgba(237,228,212,0.55);
   flex-shrink: 0;
 }
 
@@ -1763,7 +1779,7 @@ p { line-height: 1.7; }
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: rgba(237,228,212,0.4);
 }
 
 .values-h2 {
@@ -1771,19 +1787,19 @@ p { line-height: 1.7; }
   font-weight: 400 !important;
   font-size: clamp(1.85rem, 2.8vw, 2.5rem);
   line-height: 1.18;
-  color: #fff;
+  color: #EDE4D4;
   margin-bottom: 20px;
 }
 
 .values-h2 em {
   font-style: italic;
-  color: var(--accent-yellow);
+  color: #C06240;
 }
 
 .values-body {
   font-size: 0.88rem;
   line-height: 1.65;
-  color: rgba(255,255,255,0.4);
+  color: rgba(237,228,212,0.42);
   margin-bottom: 32px;
 }
 
@@ -1793,12 +1809,12 @@ p { line-height: 1.7; }
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: rgba(237,228,212,0.42);
   transition: color var(--transition);
   align-self: flex-start;
 }
 
-.values-cta:hover { color: #fff; }
+.values-cta:hover { color: #EDE4D4; }
 
 .values-bento {
   display: grid;
@@ -1811,7 +1827,7 @@ p { line-height: 1.7; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(237,228,212,0.07);
 }
 
 .values-tile__num {
@@ -1841,40 +1857,51 @@ p { line-height: 1.7; }
 
 /* tile variants */
 
+/* 01 Transparency — solid walnut, anchors the grid */
 .values-tile--glass {
-  background: rgba(255,255,255,0.06);
-  color: #fff;
+  background: rgba(20,10,4,0.78);
+  color: #EDE4D4;
 }
-.values-tile--glass .values-tile__icon { color: rgba(255,255,255,0.65); }
-.values-tile--glass .values-tile__body { color: rgba(255,255,255,0.42); }
+.values-tile--glass .values-tile__icon { color: rgba(237,228,212,0.6); }
+.values-tile--glass .values-tile__body { color: rgba(237,228,212,0.42); }
 
+/* 02 Trust — frosted glass, hero image bleeds through */
 .values-tile--white {
-  background: #fff;
-  color: var(--ink);
+  background: rgba(237,228,212,0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #000;
 }
-.values-tile--white .values-tile__num { color: var(--ink); }
-.values-tile--white .values-tile__icon { color: var(--ink); }
-.values-tile--white .values-tile__body { color: var(--ink-muted); }
+.values-tile--white .values-tile__num { color: rgba(0,0,0,0.4); }
+.values-tile--white .values-tile__icon { color: rgba(0,0,0,0.75); }
+.values-tile--white .values-tile__title { text-shadow: none; }
+.values-tile--white .values-tile__body { color: rgba(0,0,0,0.65); text-shadow: none; }
 
+/* 03 Speed — clear glass, image shows most vividly */
 .values-tile--yellow {
-  background: var(--accent-yellow);
-  color: var(--ink);
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #000;
 }
-.values-tile--yellow .values-tile__icon { color: var(--ink); }
-.values-tile--yellow .values-tile__body { color: rgba(0,0,0,0.55); }
+.values-tile--yellow .values-tile__num { color: rgba(0,0,0,0.35); }
+.values-tile--yellow .values-tile__icon { color: rgba(0,0,0,0.7); }
+.values-tile--yellow .values-tile__title { text-shadow: none; }
+.values-tile--yellow .values-tile__body { color: rgba(0,0,0,0.6); text-shadow: none; }
 
+/* 04 Quality — deepest walnut, closes the grid */
 .values-tile--dark {
-  background: rgba(255,255,255,0.03);
-  color: #fff;
+  background: rgba(14,6,2,0.88);
+  color: #EDE4D4;
 }
-.values-tile--dark .values-tile__icon { color: rgba(255,255,255,0.55); }
-.values-tile--dark .values-tile__body { color: rgba(255,255,255,0.38); }
+.values-tile--dark .values-tile__icon { color: rgba(237,228,212,0.5); }
+.values-tile--dark .values-tile__body { color: rgba(237,228,212,0.36); }
 
 @media (max-width: 1024px) {
   .values-wrap { grid-template-columns: 1fr; }
   .values-intro {
     border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(237,228,212,0.08);
     padding: 44px 36px 36px;
   }
 }

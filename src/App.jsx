@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import heroImg from './assets/JAY hero image.jpg'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import WhatsAppFloat from './components/WhatsAppFloat'
@@ -38,6 +39,7 @@ export default function App() {
 
   return (
     <div className="site">
+      <div className="site-bg" style={{ backgroundImage: `url(${heroImg})` }} />
       {showNav && <Nav page={page} navigate={navigate} />}
       <main style={{ paddingTop: showNav ? 'var(--nav-h)' : 0 }}>{pages[page]}</main>
       <Footer navigate={navigate} />
