@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react'
-import { Users, Eye, ShieldCheck, Zap, Gem } from 'lucide-react'
-import PropertyCard from '../components/PropertyCard'
-import { properties, values, WA_BASE } from '../data'
+import { useState, useEffect, useRef } from 'react'
+import { Users, Eye, ShieldCheck, Zap, Gem, MapPin } from 'lucide-react'
+import { properties, values, formatPrice, WA_BASE } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
 
 const NAV_LINKS = [
@@ -60,11 +59,31 @@ export default function HomePage({ navigate, page }) {
   const featured = properties.filter((p) => p.featured)
   const currentPage = page || 'home'
   const [navScrolled, setNavScrolled] = useState(false)
+  const [videoRevealed, setVideoRevealed] = useState(false)
+  const spotlightRef = useRef(null)
+  const videoRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setNavScrolled(window.scrollY > 72)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const el = spotlightRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVideoRevealed(true)
+          if (videoRef.current) videoRef.current.play().catch(() => {})
+          obs.disconnect()
+        }
+      },
+      { threshold: 0.25 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
   }, [])
 
   return (
@@ -337,31 +356,71 @@ export default function HomePage({ navigate, page }) {
         </div>
       </div>
 
-      {/* ── Featured Properties ── */}
-      <section className="section" style={{ background: 'var(--paper)' }}>
-        <div className="container">
-          <div className="section-header flex-between" style={{ flexWrap: 'wrap', gap: '1rem' }}>
-            <div>
-              <p className="label">Handpicked For You</p>
-              <h2>Featured Properties</h2>
-            </div>
-            <button className="btn btn-outline" onClick={() => navigate('rentals')}>
-              View All Listings
-            </button>
-          </div>
+      {/* ── Featured Spotlight ── */}
+      <div className="spotlight-stage" ref={spotlightRef}>
+        {featured.map((prop, idx) => (
+          <div key={prop.id} className="spotlight-wrap">
 
-          <div className="grid-2">
-            {featured.map((p) => (
-              <PropertyCard
-                key={p.id}
-                property={p}
-                navigate={navigate}
-                onViewDetails={() => navigate('rentals')}
+            {/* Video side */}
+            <div className={`spotlight-media${videoRevealed ? ' spotlight-media--revealed' : ''}`}>
+              <video
+                ref={idx === 0 ? videoRef : null}
+                className="spotlight-video"
+                muted
+                loop
+                playsInline
               />
-            ))}
+              <div className="spotlight-media__ui">
+                <span className="spotlight-media__tag">Property Tour</span>
+                <button className="spotlight-media__play" aria-label="Play tour">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+                <span className="spotlight-media__hint">Auto-plays on reveal</span>
+              </div>
+            </div>
+
+            {/* Info side */}
+            <div className="spotlight-info">
+              <div className="spotlight-eyebrow">
+                <div className="spotlight-eyebrow__dot" />
+                <span>Featured Property</span>
+              </div>
+
+              <h2 className="spotlight-h2">{prop.title}</h2>
+
+              <div className="spotlight-loc">
+                <MapPin size={13} strokeWidth={1.5} />
+                {prop.location}
+              </div>
+
+              <div className="spotlight-price">
+                {formatPrice(prop.price)}
+                <span>/yr</span>
+              </div>
+
+              <div className="spotlight-chips">
+                <span className="spotlight-chip">{prop.bedrooms} Beds</span>
+                <span className="spotlight-chip">{prop.bathrooms} Baths</span>
+                <span className="spotlight-chip">{prop.sqm} sqm</span>
+              </div>
+
+              <p className="spotlight-desc">
+                {prop.description.slice(0, 145)}…
+              </p>
+
+              <button
+                className="spotlight-view-btn"
+                onClick={() => navigate('property', prop.id)}
+              >
+                View Property →
+              </button>
+            </div>
+
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
 
       {/* ── CTA Banner ── */}
       <section className="cta-banner">

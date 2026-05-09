@@ -9,14 +9,21 @@ import ContactPage from './pages/ContactPage'
 import ApplyPage from './pages/ApplyPage'
 import TestimonialsPage from './pages/TestimonialsPage'
 import FAQPage from './pages/FAQPage'
+import PropertyDetailPage from './pages/PropertyDetailPage'
 
 export default function App() {
   const [page, setPage] = useState('home')
+  const [propertyId, setPropertyId] = useState(null)
+  const [fromPage, setFromPage] = useState('home')
 
-  const navigate = (to) => {
+  const navigate = (to, id) => {
+    setFromPage(page)
     setPage(to)
+    if (id !== undefined) setPropertyId(id)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
+  const showNav = page !== 'home' && page !== 'property'
 
   const pages = {
     home: <HomePage navigate={navigate} page={page} />,
@@ -26,14 +33,15 @@ export default function App() {
     apply: <ApplyPage navigate={navigate} />,
     testimonials: <TestimonialsPage navigate={navigate} />,
     faq: <FAQPage navigate={navigate} />,
+    property: <PropertyDetailPage navigate={navigate} propertyId={propertyId} fromPage={fromPage} />,
   }
 
   return (
     <div className="site">
-      {page !== 'home' && <Nav page={page} navigate={navigate} />}
-      <main style={{ paddingTop: page !== 'home' ? 'var(--nav-h)' : 0 }}>{pages[page]}</main>
+      {showNav && <Nav page={page} navigate={navigate} />}
+      <main style={{ paddingTop: showNav ? 'var(--nav-h)' : 0 }}>{pages[page]}</main>
       <Footer navigate={navigate} />
-      {page !== 'home' && <WhatsAppFloat />}
+      {showNav && <WhatsAppFloat />}
     </div>
   )
 }
