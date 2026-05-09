@@ -786,12 +786,14 @@ p { line-height: 1.7; }
 
 .hero-bg {
   position: absolute;
-  inset: 0;
+  inset: auto 0 0;
+  top: -30%;
   width: 100%;
-  height: 100%;
+  height: 140%;
   object-fit: cover;
   object-position: center 28%;
   z-index: 0;
+  will-change: transform;
 }
 
 .hero-vignette {
@@ -1489,24 +1491,46 @@ p { line-height: 1.7; }
 
 .about-card {
   border-radius: var(--hero-radius);
-  background: #1E1008;
+  background: rgba(20, 10, 4, 0.52);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(237,228,212,0.08);
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 540px;
 }
 
+/* Split-reveal animation */
+.about-card .about-visual {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1), transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-card .about-content {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.1s, transform 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+.about-card--revealed .about-visual,
+.about-card--revealed .about-content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* ── walnut tones pulled from the hero image wood louvers ── */
 .about-visual {
   position: relative;
-  background: #2A1810;
+  background: #1E1008;
   min-height: 400px;
 }
 
 .about-visual__img {
   position: absolute;
   inset: 0;
-  background: #3D2416;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1563,6 +1587,7 @@ p { line-height: 1.7; }
   justify-content: center;
   background: #EDE4D4;
   color: #1E1008;
+  border-left: 1px solid rgba(30,16,8,0.08);
 }
 
 .about-eyebrow {
@@ -1748,6 +1773,27 @@ p { line-height: 1.7; }
   min-height: 460px;
 }
 
+/* Reveal animation */
+.values-wrap .values-intro {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.values-wrap .values-tile {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1) calc(0.1s + var(--tile-i, 0) * 0.1s),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) calc(0.1s + var(--tile-i, 0) * 0.1s);
+}
+
+.values-wrap--revealed .values-intro,
+.values-wrap--revealed .values-tile {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
 .values-intro {
   padding: 52px 44px;
   display: flex;
@@ -1921,6 +1967,25 @@ p { line-height: 1.7; }
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+/* Reveal animation */
+.spotlight-stage .spotlight-wrap {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.spotlight-stage .spotlight-duo {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+.spotlight-stage--revealed .spotlight-wrap,
+.spotlight-stage--revealed .spotlight-duo {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .spotlight-wrap {

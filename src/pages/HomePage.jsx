@@ -65,11 +65,24 @@ export default function HomePage({ navigate, page }) {
   const currentPage = page || 'home'
   const [navScrolled, setNavScrolled] = useState(false)
   const [videoRevealed, setVideoRevealed] = useState(false)
+  const [spotlightRevealed, setSpotlightRevealed] = useState(false)
+  const [aboutRevealed, setAboutRevealed] = useState(false)
+  const [valuesRevealed, setValuesRevealed] = useState(false)
+  const [vidbandRevealed, setVidbandRevealed] = useState(false)
   const spotlightRef = useRef(null)
+  const aboutRef = useRef(null)
+  const valuesRef = useRef(null)
+  const vidbandRef = useRef(null)
+  const heroBgRef = useRef(null)
   const videoRefs = [useRef(null), useRef(null), useRef(null)]
 
   useEffect(() => {
-    const onScroll = () => setNavScrolled(window.scrollY > 72)
+    const onScroll = () => {
+      setNavScrolled(window.scrollY > 72)
+      if (heroBgRef.current) {
+        heroBgRef.current.style.transform = `translateY(${window.scrollY * 0.38}px)`
+      }
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -86,6 +99,50 @@ export default function HomePage({ navigate, page }) {
         }
       },
       { threshold: 0.25 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const el = spotlightRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => setSpotlightRevealed(entry.isIntersecting),
+      { threshold: 0.12 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const el = aboutRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => setAboutRevealed(entry.isIntersecting),
+      { threshold: 0.2 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const el = valuesRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => setValuesRevealed(entry.isIntersecting),
+      { threshold: 0.15 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const el = vidbandRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => setVidbandRevealed(entry.isIntersecting),
+      { threshold: 0.2 }
     )
     obs.observe(el)
     return () => obs.disconnect()
@@ -110,7 +167,7 @@ export default function HomePage({ navigate, page }) {
       {/* ── Hero Stage ── */}
       <section className="hero-stage">
         <div className="hero">
-          <img className="hero-bg" src={heroImg} alt="" aria-hidden="true" />
+          <img ref={heroBgRef} className="hero-bg" src={heroImg} alt="" aria-hidden="true" />
           <div className="hero-vignette" />
 
           {/* ── Internal Nav ── */}
@@ -249,7 +306,7 @@ export default function HomePage({ navigate, page }) {
 
       {/* ── About ── */}
       <div className="about-stage">
-        <div className="about-card">
+        <div className={`about-card${aboutRevealed ? ' about-card--revealed' : ''}`} ref={aboutRef}>
 
           {/* Visual */}
           <div className="about-visual">
@@ -320,7 +377,7 @@ export default function HomePage({ navigate, page }) {
 
       {/* ── Values ── */}
       <div className="values-stage">
-        <div className="values-wrap">
+        <div className={`values-wrap${valuesRevealed ? ' values-wrap--revealed' : ''}`} ref={valuesRef}>
 
           {/* Intro panel */}
           <div className="values-intro">
@@ -346,7 +403,7 @@ export default function HomePage({ navigate, page }) {
             {VALUE_TILES.map((tile, i) => {
               const Icon = tile.icon
               return (
-                <div key={tile.num} className={`values-tile values-tile--${tile.variant}`}>
+                <div key={tile.num} className={`values-tile values-tile--${tile.variant}`} style={{ '--tile-i': i }}>
                   <span className="values-tile__num">{tile.num}</span>
                   <div className="values-tile__icon">
                     <Icon size={26} strokeWidth={1.5} />
@@ -362,7 +419,7 @@ export default function HomePage({ navigate, page }) {
       </div>
 
       {/* ── Featured Spotlight ── */}
-      <div className="spotlight-stage" ref={spotlightRef}>
+      <div className={`spotlight-stage${spotlightRevealed ? ' spotlight-stage--revealed' : ''}`} ref={spotlightRef}>
 
         {/* Feature 1 — large landscape card */}
         {featured[0] && (
@@ -476,7 +533,7 @@ export default function HomePage({ navigate, page }) {
       </div>
 
       {/* ── Stats Reel ── */}
-      <div className="vidband-stage">
+      <div className={`vidband-stage${vidbandRevealed ? ' vidband-stage--revealed' : ''}`} ref={vidbandRef}>
         <div className="vidband">
           <div className="vidband__inner">
 
