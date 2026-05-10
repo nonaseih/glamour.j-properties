@@ -2,7 +2,7 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import PropertyCard from '../components/PropertyCard'
 import HeroNav from '../components/HeroNav'
 import { properties, formatPrice, WA_BASE } from '../data'
-import { Search, SlidersHorizontal, X, ChevronLeft, ChevronRight, Check } from 'lucide-react'
+import { Search, SlidersHorizontal, X, ChevronLeft, ChevronRight, Check, Home } from 'lucide-react'
 
 const TYPES        = ['Apartment', 'Duplex', 'Bungalow', 'Villa', 'Semi-Detached', 'Mansion', 'Terrace Duplex', 'Smart Mansion']
 const DISTRICTS    = ['Maitama', 'Asokoro', 'Jahi', 'Wuse 2', 'Gwarinpa', 'Garki', 'Guzape', 'Katampe']
@@ -43,6 +43,7 @@ function FeaturedCarousel({ navigate }) {
             onClick={() => navigate('property', prop.id)}
           >
             <div className="rl-feat-card__img">
+              <Home size={40} strokeWidth={1} className="rl-feat-card__placeholder-icon" />
               <span className={`rl-feat-card__status rl-feat-card__status--${prop.status}`}>
                 {prop.status === 'available' ? '● Available' : '◌ Pending'}
               </span>
