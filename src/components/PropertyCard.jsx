@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Home } from 'lucide-react'
+import { Home, MapPin, Bed, Bath, Car } from 'lucide-react'
 import { formatPrice, WA_BASE } from '../data'
 import { PROPERTY_VIDEOS } from '../propertyVideos'
 
@@ -41,7 +41,7 @@ export default function PropertyCard({ property, onViewDetails }) {
         <div className="rl-pc__top">
           <div className="rl-pc__title-col">
             <div className="rl-pc__title">{title}</div>
-            <div className="rl-pc__loc">📍 {location}</div>
+            <div className="rl-pc__loc"><MapPin size={11} strokeWidth={1.5} />{location}</div>
           </div>
           <div className="rl-pc__price-col">
             <div className="rl-pc__price">{formatPrice(price)}</div>
@@ -52,9 +52,9 @@ export default function PropertyCard({ property, onViewDetails }) {
         <div className="rl-pc__divider" />
 
         <div className="rl-pc__feats">
-          <span>🛏 {bedrooms} Bed{bedrooms !== 1 ? 's' : ''}</span>
-          <span>🚿 {bathrooms} Bath{bathrooms !== 1 ? 's' : ''}</span>
-          <span>🚗 {parking} Park</span>
+          <span><Bed size={12} strokeWidth={1.5} /> {bedrooms} Bed{bedrooms !== 1 ? 's' : ''}</span>
+          <span><Bath size={12} strokeWidth={1.5} /> {bathrooms} Bath{bathrooms !== 1 ? 's' : ''}</span>
+          <span><Car size={12} strokeWidth={1.5} /> {parking} Park</span>
         </div>
 
         <div className="rl-pc__actions">

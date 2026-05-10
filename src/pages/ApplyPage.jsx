@@ -1,6 +1,7 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { WA_BASE } from '../data'
 import HeroNav from '../components/HeroNav'
+import Reveal from '../components/Reveal'
 import heroImg from '../assets/JAY hero image.jpg'
 
 const STEPS = [
@@ -137,8 +138,8 @@ function Step1({ data, set }) {
           <select className="ap-input ap-select" value={data.years} onChange={set('years')}>
             <option value="">Select…</option>
             <option>Less than 1 year</option>
-            <option>1–2 years</option>
-            <option>3–5 years</option>
+            <option>1..2 years</option>
+            <option>3..5 years</option>
             <option>5+ years</option>
           </select>
         </div>
@@ -155,10 +156,10 @@ function Step2({ data, set }) {
   return (
     <>
       <p className="ap-step-title">References</p>
-      <p className="ap-step-sub">Please provide two references — at least one must be professional.</p>
+      <p className="ap-step-sub">Please provide two references .. at least one must be professional.</p>
 
       <div className="ap-ref-group">
-        <div className="ap-ref-head">Reference 1 — Professional</div>
+        <div className="ap-ref-head">Reference 1 .. Professional</div>
         <div className="ap-grid">
           <div className="ap-field">
             <label className="ap-label">Full Name *</label>
@@ -180,7 +181,7 @@ function Step2({ data, set }) {
       </div>
 
       <div className="ap-ref-group">
-        <div className="ap-ref-head">Reference 2 — Personal or Professional</div>
+        <div className="ap-ref-head">Reference 2 .. Personal or Professional</div>
         <div className="ap-grid">
           <div className="ap-field">
             <label className="ap-label">Full Name</label>
@@ -228,7 +229,7 @@ function Step3({ data, set }) {
           </svg>
         </div>
         <p className="ap-upload__title">Drag &amp; drop files here</p>
-        <p className="ap-upload__hint">PDF, JPG, PNG — max 5 MB each</p>
+        <p className="ap-upload__hint">PDF, JPG, PNG .. max 5 MB each</p>
         <span className="ap-upload__btn">Browse Files</span>
       </label>
 
@@ -290,13 +291,13 @@ export default function ApplyPage({ navigate }) {
             </div>
           </div>
         </div>
-        <div className="ap-body">
+        <Reveal><div className="ap-body">
           <div className="ap-success">
             <div className="ap-success__icon">✓</div>
             <h2 className="ap-success__title">Application Submitted!</h2>
             <p className="ap-success__body">
               Your rental application has been received. One of our agents will review it and
-              contact you within 24–48 business hours.
+              contact you within 24..48 business hours.
             </p>
             <div className="ap-success__actions">
               <button className="ap-btn ap-btn--dark" onClick={() => navigate('rentals')}>
@@ -307,7 +308,7 @@ export default function ApplyPage({ navigate }) {
               </button>
             </div>
           </div>
-        </div>
+        </div></Reveal>
       </div>
     )
   }
@@ -325,7 +326,7 @@ export default function ApplyPage({ navigate }) {
             <p className="ap-hero__eyebrow">Rental Application</p>
             <h1 className="ap-hero__title">Apply to<br /><em>Rent</em></h1>
             <p className="ap-hero__sub">
-              Complete the four-step form below — it takes around 10–15 minutes.
+              Complete the four-step form below .. it takes around 10..15 minutes.
               All information is kept strictly confidential.
             </p>
           </div>
@@ -333,7 +334,7 @@ export default function ApplyPage({ navigate }) {
       </div>
 
       {/* ── Body ── */}
-      <div className="ap-body">
+      <Reveal><div className="ap-body">
         <Stepper step={step} />
 
         <div className="ap-layout">
@@ -368,7 +369,7 @@ export default function ApplyPage({ navigate }) {
               <h4 className="ap-sidebar-card__title">What Happens Next?</h4>
               <div className="ap-next-steps">
                 {[
-                  'We review your application (1–2 days)',
+                  'We review your application (1..2 days)',
                   'Agent contacts you to discuss shortlist',
                   'Viewings arranged at your convenience',
                   'Offer made & tenancy agreement signed',
@@ -416,7 +417,7 @@ export default function ApplyPage({ navigate }) {
           </aside>
 
         </div>
-      </div>
+      </div></Reveal>
 
     </div>
   )

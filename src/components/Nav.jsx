@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import HouseLogo from './HouseLogo'
 
 const LINKS = [
@@ -26,7 +26,7 @@ export default function Nav({ page, navigate }) {
             <HouseLogo size={32} />
             <div>
               <div className="nav__logo-name">Jay. G Properties</div>
-              <div className="nav__logo-sub">& Rentals — Abuja</div>
+              <div className="nav__logo-sub">& Rentals .. Abuja</div>
             </div>
           </button>
 

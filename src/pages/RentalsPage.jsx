@@ -1,9 +1,10 @@
-import { useState, useMemo, useRef, useEffect } from 'react'
+﻿import { useState, useMemo, useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import PropertyCard from '../components/PropertyCard'
 import HeroNav from '../components/HeroNav'
+import Reveal from '../components/Reveal'
 import { properties, formatPrice, WA_BASE } from '../data'
-import { Search, SlidersHorizontal, X, ChevronLeft, ChevronRight, Check, Home } from 'lucide-react'
+import { Search, SlidersHorizontal, X, ChevronLeft, ChevronRight, Check, Home, MapPin, Bed, Bath, Droplets, Car, Ruler, Smartphone, Building2 } from 'lucide-react'
 
 const TYPES        = ['Apartment', 'Duplex', 'Bungalow', 'Villa', 'Semi-Detached', 'Mansion', 'Terrace Duplex', 'Smart Mansion']
 const DISTRICTS    = ['Maitama', 'Asokoro', 'Jahi', 'Wuse 2', 'Gwarinpa', 'Garki', 'Guzape', 'Katampe', 'Lokogoma', 'Utako', 'Lifecamp']
@@ -183,19 +184,19 @@ function PropertyModal({ property, onClose, navigate }) {
               <span>{priceNote ?? ' / year'}</span>
             </div>
             <div className="rl-modal__title">{title}</div>
-            <div className="rl-modal__loc">📍 {location}</div>
+            <div className="rl-modal__loc"><MapPin size={13} strokeWidth={1.5} /> {location}</div>
           </div>
 
           {/* Features strip */}
           <div className="rl-modal__features">
             {[
-              ['🛏', `${bedrooms} Bedrooms`],
-              ['🚿', `${bathrooms} Bathrooms`],
-              toilets && ['🚽', `${toilets} Toilets`],
-              ['🚗', `${parking} Parking`],
-              sqm && ['📐', `${sqm} sqm`],
-            ].filter(Boolean).map(([icon, label]) => (
-              <span key={label} className="rl-modal__feat">{icon} {label}</span>
+              [Bed,      `${bedrooms} Bedrooms`],
+              [Bath,     `${bathrooms} Bathrooms`],
+              toilets && [Droplets, `${toilets} Toilets`],
+              [Car,      `${parking} Parking`],
+              sqm && [Ruler, `${sqm} sqm`],
+            ].filter(Boolean).map(([Icon, label]) => (
+              <span key={label} className="rl-modal__feat"><Icon size={13} strokeWidth={1.6} /> {label}</span>
             ))}
           </div>
 
@@ -260,7 +261,7 @@ function PropertyModal({ property, onClose, navigate }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              📱 WhatsApp Agent
+              <Smartphone size={14} strokeWidth={1.8} /> WhatsApp Agent
             </a>
             <button
               className="rl-modal__btn rl-modal__btn--ghost"
@@ -369,7 +370,7 @@ export default function RentalsPage({ navigate }) {
             Abuja's best districts.
           </h1>
           <p className="rl-hero__sub">
-            From furnished apartments to luxury villas — every listing personally vetted.
+            From furnished apartments to luxury villas .. every listing personally vetted.
           </p>
         </div>
 
@@ -545,65 +546,69 @@ export default function RentalsPage({ navigate }) {
       )}
 
       {/* ── Toolbar ── */}
-      <div className="rl-toolbar">
-        <div className="rl-toolbar__left">
-          <span className="rl-toolbar__count">{filtered.length}</span>
-          <span className="rl-toolbar__cap">
-            propert{filtered.length === 1 ? 'y' : 'ies'} found
-          </span>
-          <ActiveChips filters={filters} set={set} resetFilters={resetFilters} />
+      <Reveal>
+        <div className="rl-toolbar">
+          <div className="rl-toolbar__left">
+            <span className="rl-toolbar__count">{filtered.length}</span>
+            <span className="rl-toolbar__cap">
+              propert{filtered.length === 1 ? 'y' : 'ies'} found
+            </span>
+            <ActiveChips filters={filters} set={set} resetFilters={resetFilters} />
+          </div>
+          <div className="rl-toolbar__right">
+            <span className="rl-toolbar__sort-lbl">Sort:</span>
+            <select className="rl-sort" value={sort} onChange={(e) => setSort(e.target.value)}>
+              <option value="default">Default</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+              <option value="beds-desc">Most Bedrooms</option>
+            </select>
+          </div>
         </div>
-        <div className="rl-toolbar__right">
-          <span className="rl-toolbar__sort-lbl">Sort:</span>
-          <select className="rl-sort" value={sort} onChange={(e) => setSort(e.target.value)}>
-            <option value="default">Default</option>
-            <option value="price-asc">Price: Low → High</option>
-            <option value="price-desc">Price: High → Low</option>
-            <option value="beds-desc">Most Bedrooms</option>
-          </select>
-        </div>
-      </div>
+      </Reveal>
 
       {/* ── Listing grid ── */}
-      <div className="rl-body">
-        {filtered.length === 0 ? (
-          <div className="rl-empty">
-            <div className="rl-empty__icon">🏘</div>
-            <div className="rl-empty__h">No properties match your filters</div>
-            <p className="rl-empty__sub">
-              Try adjusting your search or{' '}
-              <button className="rl-empty__reset" onClick={resetFilters}>reset all filters</button>.
-            </p>
-          </div>
-        ) : (
-          <div className="rl-grid">
-            {filtered.map((p) => (
-              <PropertyCard
-                key={p.id}
-                property={p}
-                navigate={navigate}
-                onViewDetails={setSelected}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* ── Bottom CTA ── */}
-        <div className="rl-cta">
-          <div className="rl-cta__inner">
-            <div className="rl-cta__text">
-              <div className="rl-cta__eyebrow">Can't find what you need?</div>
-              <h2 className="rl-cta__h2">Tell us what you're<br /><em>looking for.</em></h2>
-              <p className="rl-cta__sub">
-                We often have unlisted properties. Describe your ideal home and we'll search our full network.
+      <Reveal delay={60}>
+        <div className="rl-body">
+          {filtered.length === 0 ? (
+            <div className="rl-empty">
+              <div className="rl-empty__icon"><Building2 size={40} strokeWidth={1} /></div>
+              <div className="rl-empty__h">No properties match your filters</div>
+              <p className="rl-empty__sub">
+                Try adjusting your search or{' '}
+                <button className="rl-empty__reset" onClick={resetFilters}>reset all filters</button>.
               </p>
             </div>
-            <button className="rl-cta__btn" onClick={() => navigate('contact')}>
-              Talk to an Agent →
-            </button>
+          ) : (
+            <div className="rl-grid">
+              {filtered.map((p) => (
+                <PropertyCard
+                  key={p.id}
+                  property={p}
+                  navigate={navigate}
+                  onViewDetails={setSelected}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* ── Bottom CTA ── */}
+          <div className="rl-cta">
+            <div className="rl-cta__inner">
+              <div className="rl-cta__text">
+                <div className="rl-cta__eyebrow">Can't find what you need?</div>
+                <h2 className="rl-cta__h2">Tell us what you're<br /><em>looking for.</em></h2>
+                <p className="rl-cta__sub">
+                  We often have unlisted properties. Describe your ideal home and we'll search our full network.
+                </p>
+              </div>
+              <button className="rl-cta__btn" onClick={() => navigate('contact')}>
+                Talk to an Agent →
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </Reveal>
 
       {/* Modal */}
       {selected && (

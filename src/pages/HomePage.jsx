@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 import { Users, Eye, ShieldCheck, Zap, Gem, MapPin } from 'lucide-react'
 import { properties, values, formatPrice, WA_BASE } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
@@ -160,7 +160,7 @@ export default function HomePage({ navigate, page }) {
             </div>
             <h1>
               Find your perfect<br />
-              <em>Abuja rental</em> —<br />
+              <em>Abuja rental</em> ..<br />
               homes worth living in.
             </h1>
             <p className="hero-headline__sub">
@@ -182,7 +182,7 @@ export default function HomePage({ navigate, page }) {
 
           {/* ── Stat Cards ── */}
           <div className="hero-stats">
-            {/* Card 1 — glass: Homes Let */}
+            {/* Card 1 .. glass: Homes Let */}
             <div className="hero-stat hero-stat--glass">
               <div className="hero-stat__thumb-row">
                 <div className="hero-stat__thumb">Photo</div>
@@ -192,7 +192,7 @@ export default function HomePage({ navigate, page }) {
               <div className="hero-stat__sub">Premium properties across Abuja FCT</div>
             </div>
 
-            {/* Card 2 — dark: Tenant Trust */}
+            {/* Card 2 .. dark: Tenant Trust */}
             <div className="hero-stat hero-stat--dark">
               <div className="hero-stat__ring-row">
                 <ProgressRing pct={98} r={22} />
@@ -200,10 +200,10 @@ export default function HomePage({ navigate, page }) {
               </div>
               <span className="hero-stat__label">Tenant Trust</span>
               <div className="hero-stat__num">98%</div>
-              <div className="hero-stat__sub">tenants report a smooth move-in — backed by quick-response support.</div>
+              <div className="hero-stat__sub">tenants report a smooth move-in .. backed by quick-response support.</div>
             </div>
 
-            {/* Card 3 — glass: Reach */}
+            {/* Card 3 .. glass: Reach */}
             <div className="hero-stat hero-stat--glass" style={{ flexDirection: 'row', gap: '12px' }}>
               <div className="hero-stat__dual">
                 <div className="hero-stat__dual-item">
@@ -218,14 +218,14 @@ export default function HomePage({ navigate, page }) {
               <button className="hero-stat__peach-chip" onClick={() => navigate('agents')} aria-label="Meet our agents">↗</button>
             </div>
 
-            {/* Card 4 — white: Rating + Testimonial */}
+            {/* Card 4 .. white: Rating + Testimonial */}
             <div className="hero-stat hero-stat--white">
               <div className="hero-stat__top-row">
                 <div className="hero-stat__num" style={{ marginTop: 0 }}>4.9★</div>
                 <button className="hero-stat__tag" onClick={() => navigate('testimonials')} aria-label="Read all reviews">Top rated</button>
               </div>
               <p className="hero-stat__quote">
-                "Moving into our Maitama home was seamless — Jay. G handled everything."
+                "Moving into our Maitama home was seamless .. Jay. G handled everything."
               </p>
               <div className="hero-stat__author">
                 <div className="hero-stat__avatar">AM</div>
@@ -292,7 +292,7 @@ export default function HomePage({ navigate, page }) {
             </p>
             <p className="about-body">
               Our team of four expert agents has unmatched knowledge of Abuja's residential
-              districts — from Asokoro to the family-friendly suburbs of Gwarinpa.
+              districts .. from Asokoro to the family-friendly suburbs of Gwarinpa.
             </p>
 
             <div className="about-stats-row">
@@ -338,7 +338,7 @@ export default function HomePage({ navigate, page }) {
               <em>set us apart</em>
             </h2>
             <p className="values-body">
-              We built our agency around what Abuja renters told us mattered most —
+              We built our agency around what Abuja renters told us mattered most ..
               and we've never compromised on any of them.
             </p>
             <button className="values-cta" onClick={() => navigate('faq')}>
@@ -377,7 +377,7 @@ export default function HomePage({ navigate, page }) {
             <h3 className="cert-title">Officially Licensed &amp; Registered</h3>
             <p className="cert-sub">
               Jay. G Properties &amp; Rentals is a fully registered business with the
-              Corporate Affairs Commission of Nigeria — operating transparently since 2012.
+              Corporate Affairs Commission of Nigeria .. operating transparently since 2012.
             </p>
           </div>
           <button className="cert-thumb-btn" onClick={() => setCertOpen(true)} aria-label="View certificate of registration">
@@ -402,7 +402,7 @@ export default function HomePage({ navigate, page }) {
       {/* ── Featured Spotlight ── */}
       <div className={`spotlight-stage${spotlightRevealed ? ' spotlight-stage--revealed' : ''}`} ref={spotlightRef}>
 
-        {/* Feature 1 — large landscape card */}
+        {/* Feature 1 .. large landscape card */}
         {featured[0] && (
           <div className="spotlight-wrap">
             <div className={`spotlight-media${videoRevealed ? ' spotlight-media--revealed' : ''}`}>
@@ -458,7 +458,7 @@ export default function HomePage({ navigate, page }) {
           </div>
         )}
 
-        {/* Features 2 & 3 — duo of portrait cards */}
+        {/* Features 2 & 3 .. duo of portrait cards */}
         {featured.length > 1 && (
           <div className="spotlight-duo">
             {featured.slice(1).map((prop, i) => {

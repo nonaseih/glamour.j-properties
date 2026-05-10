@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { faqs, WA_BASE } from '../data'
 import HeroNav from '../components/HeroNav'
+import Reveal from '../components/Reveal'
 import heroImg from '../assets/JAY hero image.jpg'
 
 const CATEGORIES = ['All', 'Process', 'Costs', 'Requirements', 'Tenancy']
@@ -87,17 +88,20 @@ export default function FAQPage({ navigate }) {
       </div>
 
       {/* ── Accordion ── */}
-      <main className="fq-main">
-        <div className="fq-main__inner">
-          <div className="fq-list">
-            {filtered.map((f, i) => (
-              <FAQItem key={f.id} faq={f} index={i} />
-            ))}
+      <Reveal>
+        <main className="fq-main">
+          <div className="fq-main__inner">
+            <div className="fq-list">
+              {filtered.map((f, i) => (
+                <FAQItem key={f.id} faq={f} index={i} />
+              ))}
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+      </Reveal>
 
       {/* ── Bottom CTA ── */}
+      <Reveal delay={80}>
       <div className="fq-cta">
         <div className="fq-cta__inner">
           <div className="fq-cta__text">
@@ -123,6 +127,7 @@ export default function FAQPage({ navigate }) {
           </div>
         </div>
       </div>
+      </Reveal>
 
     </div>
   )

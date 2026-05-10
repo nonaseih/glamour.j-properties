@@ -1,4 +1,4 @@
-export const properties = [
+﻿export const properties = [
   {
     id: 7,
     title: 'The Smart House S',
@@ -24,7 +24,7 @@ export const properties = [
       'Top-Tier Sanitary Fittings',
     ],
     description:
-      'The pinnacle of smart living in Asokoro — Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, and government bodies. Inspection fee: ₦15,000. Other fees communicated after inspection.',
+      'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, and government bodies. Inspection fee: ₦15,000. Other fees communicated after inspection.',
     annualRent: 150000000,
     cautionFee: 150000000,
     agencyFee: 7500000,
@@ -109,7 +109,7 @@ export const properties = [
       'Security Gate', 'Serene Environment',
     ],
     description:
-      'A standalone luxury mansion in the prestigious Guzape District — designed for comfort, class, and exclusivity. Features a private swimming pool, a beautiful garden, a 2-bedroom guest chalet, and generous compound space in a secure, serene environment. Serious enquiries only — inspection available by appointment.',
+      'A standalone luxury mansion in the prestigious Guzape District .. designed for comfort, class, and exclusivity. Features a private swimming pool, a beautiful garden, a 2-bedroom guest chalet, and generous compound space in a secure, serene environment. Serious enquiries only .. inspection available by appointment.',
     annualRent: 30000000,
     cautionFee: 30000000,
     agencyFee: 1500000,
@@ -141,7 +141,7 @@ export const properties = [
       '2 Sitting Rooms', 'Move-in Ready',
     ],
     description:
-      'A newly built modernized masterpiece in Lokogoma — five massive bedrooms, a penthouse, cinema room, gazebo, and a fully fitted kitchen with pantry. Comes fully furnished and move-in ready, with solar inverters, CCTV, a spacious office, walk-in closet, and boys quarters. Contemporary architecture at its finest.',
+      'A newly built modernized masterpiece in Lokogoma .. five massive bedrooms, a penthouse, cinema room, gazebo, and a fully fitted kitchen with pantry. Comes fully furnished and move-in ready, with solar inverters, CCTV, a spacious office, walk-in closet, and boys quarters. Contemporary architecture at its finest.',
     annualRent: 470000000,
     cautionFee: 0,
     agencyFee: 23500000,
@@ -202,7 +202,7 @@ export const properties = [
       'Top-Notch Sanitary Wares', 'Well Secured Environment', 'Box Room',
     ],
     description:
-      'A newly built contemporary 5-bedroom fully detached duplex in the prestigious NAF Valley Estate, Asokoro. Fully finished to the highest standard — marble floors, walk-in closets in every bedroom, chandeliers, fitted kitchen, and two living areas. Priced at ₦1.6B. 5% professional fee applies.',
+      'A newly built contemporary 5-bedroom fully detached duplex in the prestigious NAF Valley Estate, Asokoro. Fully finished to the highest standard .. marble floors, walk-in closets in every bedroom, chandeliers, fitted kitchen, and two living areas. Priced at ₦1.6B. 5% professional fee applies.',
     annualRent: 1600000000,
     cautionFee: 0,
     agencyFee: 80000000,
@@ -233,7 +233,7 @@ export const properties = [
       'Top-Notch Sanitary Wares', 'Well Secured Environment', 'Box Room',
     ],
     description:
-      'A newly built contemporary 5-bedroom fully detached duplex in the prestigious NAF Valley Estate, Asokoro. Fully finished to the highest standard — marble floors, walk-in closets in every bedroom, chandeliers, fitted kitchen, and two living areas. Priced at ₦1.6B. 5% professional fee applies.',
+      'A newly built contemporary 5-bedroom fully detached duplex in the prestigious NAF Valley Estate, Asokoro. Fully finished to the highest standard .. marble floors, walk-in closets in every bedroom, chandeliers, fitted kitchen, and two living areas. Priced at ₦1.6B. 5% professional fee applies.',
     annualRent: 1600000000,
     cautionFee: 0,
     agencyFee: 80000000,
@@ -261,7 +261,7 @@ export const properties = [
       'Security Gate', 'Fully Detached',
     ],
     description:
-      'A distress sale opportunity in Guzape — a 5-bedroom fully detached duplex with a room BQ in a secure mini estate. Reduced to ₦750M for a quick sale. 5% professional fee applies. Serious buyers only.',
+      'A distress sale opportunity in Guzape .. a 5-bedroom fully detached duplex with a room BQ in a secure mini estate. Reduced to ₦750M for a quick sale. 5% professional fee applies. Serious buyers only.',
     annualRent: 750000000,
     cautionFee: 0,
     agencyFee: 37500000,
@@ -289,7 +289,7 @@ export const properties = [
       'Gated Estate', 'Terrace Design',
     ],
     description:
-      'A beautifully furnished 4-bedroom terrace duplex with a 1-room BQ in Katampe Extension. Reduced from ₦550M to ₦500M — a rare deal at exceptional value. 5% professional fee applies.',
+      'A beautifully furnished 4-bedroom terrace duplex with a 1-room BQ in Katampe Extension. Reduced from ₦550M to ₦500M .. a rare deal at exceptional value. 5% professional fee applies.',
     annualRent: 500000000,
     cautionFee: 0,
     agencyFee: 25000000,
@@ -347,7 +347,7 @@ export const properties = [
       'Fence & Gated', 'Private Compound', 'Ample Parking', 'Very Secure Environment',
     ],
     description:
-      'A newly built, spacious and tastefully finished 4-bedroom terrace duplex with a private compound and 1-room BQ in Guzape. All bedrooms are en-suite, with two living rooms, a fully fitted kitchen, balcony, and generous parking in a very secure environment. Asking ₦450M — open to offers around ₦440M. 5% professional fee applies.',
+      'A newly built, spacious and tastefully finished 4-bedroom terrace duplex with a private compound and 1-room BQ in Guzape. All bedrooms are en-suite, with two living rooms, a fully fitted kitchen, balcony, and generous parking in a very secure environment. Asking ₦450M .. open to offers around ₦440M. 5% professional fee applies.',
     annualRent: 450000000,
     cautionFee: 0,
     agencyFee: 22500000,
@@ -407,7 +407,7 @@ export const properties = [
       'Tarred Access Road', 'Serene Environment',
     ],
     description:
-      'A luxurious and spacious 3-bedroom smart home with maiden\'s room at Lifecamp Junction — all roads tarred to the door. Loaded with tech: smart home system, fiber optic internet, plug-and-play CCTV and DStv, inbuilt speakers, and central solar. All rooms en-suite, fitted kitchen with store, car port, and a massive compound. Ideal for upscale residential living or high-end Airbnb. Asking ₦250M.',
+      'A luxurious and spacious 3-bedroom smart home with maiden\'s room at Lifecamp Junction .. all roads tarred to the door. Loaded with tech: smart home system, fiber optic internet, plug-and-play CCTV and DStv, inbuilt speakers, and central solar. All rooms en-suite, fitted kitchen with store, car port, and a massive compound. Ideal for upscale residential living or high-end Airbnb. Asking ₦250M.',
     annualRent: 250000000,
     cautionFee: 0,
     agencyFee: 12500000,
@@ -440,7 +440,7 @@ export const properties = [
       'Secure Managed Estate', 'Free Inspection',
     ],
     description:
-      'An exceptional luxury residence in the heart of Maitama — Abuja\'s most prestigious address. Five massive en-suite bedrooms with walk-in closets, a cinema room, home gym, smart home automation, and a fully fitted kitchen with premium appliances. Floor-to-ceiling windows, 24/7 power, CCTV, and access control in a well-managed, secure estate. Built for prestige living, ultimate comfort, and outstanding investment returns. Asking ₦4.5B. Inspection is free.',
+      'An exceptional luxury residence in the heart of Maitama .. Abuja\'s most prestigious address. Five massive en-suite bedrooms with walk-in closets, a cinema room, home gym, smart home automation, and a fully fitted kitchen with premium appliances. Floor-to-ceiling windows, 24/7 power, CCTV, and access control in a well-managed, secure estate. Built for prestige living, ultimate comfort, and outstanding investment returns. Asking ₦4.5B. Inspection is free.',
     annualRent: 4500000000,
     cautionFee: 0,
     agencyFee: 225000000,
@@ -471,7 +471,7 @@ export const properties = [
       'Smart Chandelier with Fan & Bluetooth Speaker',
     ],
     description:
-      'A fully serviced 2-bedroom luxury apartment in Jahi — designed for premium comfort and convenience. Three balconies, smart TV sets, PS5, sound system, daily housekeeping, and 24/7 internet. The kitchen is fully equipped and a 3-in-1 washing machine is included. Armed security and cameras front and back, with 24/7 power supply. Annual rent ₦18M. Caution ₦500K. Agency & legal 20% combined. Service charge TBD.',
+      'A fully serviced 2-bedroom luxury apartment in Jahi .. designed for premium comfort and convenience. Three balconies, smart TV sets, PS5, sound system, daily housekeeping, and 24/7 internet. The kitchen is fully equipped and a 3-in-1 washing machine is included. Armed security and cameras front and back, with 24/7 power supply. Annual rent ₦18M. Caution ₦500K. Agency & legal 20% combined. Service charge TBD.',
     annualRent: 18000000,
     cautionFee: 500000,
     agencyFee: 1800000,
@@ -544,7 +544,7 @@ export const testimonials = [
     id: 't1',
     name: 'The Adesanya Family',
     rating: 5,
-    quote: 'Moving from Lagos with three kids, we needed a place that actually felt like home from day one. Jay G found us a 4-bedroom in Asokoro that ticked every box — good schools nearby, secure estate, space for everyone. The transition was seamless.',
+    quote: 'Moving from Lagos with three kids, we needed a place that actually felt like home from day one. Jay G found us a 4-bedroom in Asokoro that ticked every box .. good schools nearby, secure estate, space for everyone. The transition was seamless.',
     detail: '4 Bed Duplex · Asokoro',
     propertyType: '4 Bed Duplex',
     district: 'Asokoro',
@@ -560,7 +560,7 @@ export const testimonials = [
     id: 't2',
     name: 'Blessing E.',
     rating: 5,
-    quote: 'Our daughter calls it her "forever room." After six months of disappointment with other agencies, Jay G found us exactly what we described — in two weeks. Their honesty about costs saved us from a lot of financial surprises.',
+    quote: 'Our daughter calls it her "forever room." After six months of disappointment with other agencies, Jay G found us exactly what we described .. in two weeks. Their honesty about costs saved us from a lot of financial surprises.',
     detail: '3 Bed Apartment · Gwarinpa',
     propertyType: '3 Bed Apartment',
     district: 'Gwarinpa',
@@ -591,7 +591,7 @@ export const testimonials = [
     id: 't4',
     name: 'Dr. Chidi Amaechi',
     rating: 5,
-    quote: 'I was relocating from Lagos and needed everything handled remotely. Virtual viewings, digital signing, coordinated move-in — all flawless. Truly world-class service.',
+    quote: 'I was relocating from Lagos and needed everything handled remotely. Virtual viewings, digital signing, coordinated move-in .. all flawless. Truly world-class service.',
     detail: '5 Bed Detached · Asokoro',
     propertyType: '5 Bed Detached',
     district: 'Asokoro',
@@ -621,7 +621,7 @@ export const testimonials = [
     id: 't6',
     name: 'Ngozi & Ifeanyi Obi',
     rating: 5,
-    quote: 'We had tried two other agencies before Jay G. The difference was night and day — no hidden charges, no vague answers. Just honest professionals who genuinely wanted us to find the right home.',
+    quote: 'We had tried two other agencies before Jay G. The difference was night and day .. no hidden charges, no vague answers. Just honest professionals who genuinely wanted us to find the right home.',
     detail: '4 Bed Duplex · Garki',
     propertyType: '4 Bed Duplex',
     district: 'Garki',
@@ -680,7 +680,7 @@ export const faqs = [
     id: 2,
     category: 'Process',
     q: 'How long does it take to rent a property?',
-    a: 'For qualified applicants with all documents ready, the process typically takes 5–10 working days from application to key handover. The majority of this time is document verification by the landlord.',
+    a: 'For qualified applicants with all documents ready, the process typically takes 5..10 working days from application to key handover. The majority of this time is document verification by the landlord.',
   },
   {
     id: 3,
@@ -737,7 +737,7 @@ export const values = [
     id: 1,
     icon: 'T',
     title: 'Transparency',
-    body: 'Every fee, every clause, every condition — disclosed upfront. No surprises on move-in day.',
+    body: 'Every fee, every clause, every condition .. disclosed upfront. No surprises on move-in day.',
   },
   {
     id: 2,

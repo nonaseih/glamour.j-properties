@@ -1,7 +1,8 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { MapPin, ArrowRight, Clock } from 'lucide-react'
 import { WA_BASE } from '../data'
 import HeroNav from '../components/HeroNav'
+import Reveal from '../components/Reveal'
 import heroImg from '../assets/JAY hero image.jpg'
 
 const WA_SVG = (
@@ -40,8 +41,8 @@ const SOCIALS = [
 const TOPICS = ['General Enquiry', 'Book a Viewing', 'Property Not Listed', 'Tenancy Issue', 'Other']
 
 const HOURS = [
-  { day: 'Monday – Friday', time: '8:00am – 6:00pm' },
-  { day: 'Saturday',        time: '9:00am – 4:00pm' },
+  { day: 'Monday .. Friday', time: '8:00am .. 6:00pm' },
+  { day: 'Saturday',        time: '9:00am .. 4:00pm' },
   { day: 'Sunday',          time: 'Closed'           },
 ]
 
@@ -71,13 +72,14 @@ export default function ContactPage({ navigate }) {
             <p className="ct-hero__eyebrow">Get in Touch</p>
             <h1 className="ct-hero__title">We'd Love to<br /><em>Hear From You</em></h1>
             <p className="ct-hero__sub">
-              Reach us on any channel — we respond within a few hours on business days.
+              Reach us on any channel .. we respond within a few hours on business days.
             </p>
           </div>
         </div>
       </div>
 
       {/* ── Body ── */}
+      <Reveal>
       <div className="ct-body">
         <div className="ct-body__inner">
 
@@ -87,7 +89,7 @@ export default function ContactPage({ navigate }) {
             <h2 className="ct-info__title">Choose your channel</h2>
             <p className="ct-info__sub">
               Whether you want to book a viewing, ask about a listing, or find out more about our
-              process — we're here to help.
+              process .. we're here to help.
             </p>
 
             <div className="ct-socials">
@@ -136,7 +138,7 @@ export default function ContactPage({ navigate }) {
                 <div className="ct-success__icon">✓</div>
                 <h3 className="ct-success__title">Message Sent!</h3>
                 <p className="ct-success__body">
-                  Thank you for reaching out. One of our agents will get back to you within 2–4 business hours.
+                  Thank you for reaching out. One of our agents will get back to you within 2..4 business hours.
                 </p>
                 <button className="ct-submit" onClick={() => setSent(false)}>
                   Send Another Message
@@ -188,6 +190,7 @@ export default function ContactPage({ navigate }) {
 
         </div>
       </div>
+      </Reveal>
 
     </div>
   )

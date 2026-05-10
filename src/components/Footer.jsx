@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+﻿import { useState, useEffect, useRef } from 'react'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import HouseLogo from './HouseLogo'
 import { WA_BASE } from '../data'
@@ -125,7 +125,7 @@ export default function Footer({ navigate }) {
             </button>
             <p className="footer-brand__tagline">
               Premium residential rentals in Abuja, Nigeria.
-              Transparent, fast, and professional — since 2012.
+              Transparent, fast, and professional .. since 2012.
             </p>
             <div className="footer-socials">
               {SOCIALS.map((s) => (
@@ -186,7 +186,7 @@ export default function Footer({ navigate }) {
               </a>
               <div className="footer-contact">
                 <Clock size={13} strokeWidth={1.5} />
-                <span>Mon–Fri 8am–6pm · Sat 9am–4pm</span>
+                <span>Mon..Fri 8am..6pm · Sat 9am..4pm</span>
               </div>
             </div>
           </div>

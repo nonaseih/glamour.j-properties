@@ -7306,6 +7306,20 @@ button.hero-stat__tag:hover { opacity: 0.82; }
 .cs-wall__btn:hover { filter: brightness(1.4); }
 
 /* ═══════════════════════════════════════════
+   REVEAL ANIMATION
+═══════════════════════════════════════════ */
+.reveal-wrap {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 640ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-wrap--on {
+  opacity: 1;
+  transform: none;
+}
+
+/* ═══════════════════════════════════════════
    APPLY PAGE  (ap-*)
 ═══════════════════════════════════════════ */
 .ap-page {

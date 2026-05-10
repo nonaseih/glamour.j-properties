@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
-import { Pen, Check, X } from 'lucide-react'
+﻿import { useState, useRef, useEffect, useCallback } from 'react'
+import { Pen, Check, X, ClipboardList, Phone, BadgeCheck } from 'lucide-react'
 import { testimonials, reviewStats } from '../data'
 import HeroNav from '../components/HeroNav'
+import Reveal from '../components/Reveal'
 import heroImg from '../assets/JAY hero image.jpg'
 
 // ── Avatar color palette ──
@@ -271,9 +272,9 @@ function WriteReviewModal({ open, onClose, onSubmit }) {
 
 function HowWeVerify() {
   const steps = [
-    { icon: '📋', title: 'Tenancy Confirmation', body: 'We check that the reviewer has an active or past tenancy agreement with Jay G Properties.' },
-    { icon: '📞', title: 'Identity Check', body: 'Our team contacts the reviewer via the phone number on file to confirm the submission.' },
-    { icon: '✅', title: 'Editorial Review', body: 'Reviews are read for authenticity before publishing. No fake or incentivised reviews, ever.' },
+    { Icon: ClipboardList, title: 'Tenancy Confirmation', body: 'We check that the reviewer has an active or past tenancy agreement with Jay G Properties.' },
+    { Icon: Phone,         title: 'Identity Check',       body: 'Our team contacts the reviewer via the phone number on file to confirm the submission.' },
+    { Icon: BadgeCheck,    title: 'Editorial Review',     body: 'Reviews are read for authenticity before publishing. No fake or incentivised reviews, ever.' },
   ]
   return (
     <section className="rv-how">
@@ -286,7 +287,7 @@ function HowWeVerify() {
         <div className="rv-how__steps">
           {steps.map((s) => (
             <div key={s.title} className="rv-how__step">
-              <div className="rv-how__step-icon">{s.icon}</div>
+              <div className="rv-how__step-icon"><s.Icon size={22} strokeWidth={1.4} /></div>
               <div className="rv-how__step-title">{s.title}</div>
               <p className="rv-how__step-body">{s.body}</p>
             </div>
@@ -301,7 +302,7 @@ function Toast({ show }) {
   return (
     <div className={`rv-toast${show ? ' rv-toast--visible' : ''}`} role="status" aria-live="polite">
       <Check size={14} strokeWidth={2.5} />
-      Review submitted — thank you! We'll publish it after verification.
+      Review submitted .. thank you! We'll publish it after verification.
     </div>
   )
 }
@@ -362,35 +363,37 @@ export default function TestimonialsPage({ navigate }) {
       </div>
 
       {/* ── Rating Band ── */}
-      <div className="rv-band">
-        <div className="rv-band__inner">
-          <div className="rv-band__score-wrap">
-            <span className="rv-band__score">{reviewStats.avg}</span>
-            <div>
-              <StarsLight count={Math.round(reviewStats.avg)} size={22} />
-              <div className="rv-band__count">{reviewStats.total} verified reviews</div>
+      <Reveal>
+        <div className="rv-band">
+          <div className="rv-band__inner">
+            <div className="rv-band__score-wrap">
+              <span className="rv-band__score">{reviewStats.avg}</span>
+              <div>
+                <StarsLight count={Math.round(reviewStats.avg)} size={22} />
+                <div className="rv-band__count">{reviewStats.total} verified reviews</div>
+              </div>
+            </div>
+            <div className="rv-band__divider" />
+            <div className="rv-band__platforms">
+              {[
+                { name: 'Google',    score: '4.9' },
+                { name: 'Facebook',  score: '4.8' },
+                { name: 'Nairaland', score: '4.9' },
+              ].map((p) => (
+                <div key={p.name} className="rv-band__platform">
+                  <div className="rv-band__platform-score">{p.score} ★</div>
+                  <div className="rv-band__platform-name">{p.name}</div>
+                </div>
+              ))}
+            </div>
+            <div className="rv-band__divider" />
+            <div className="rv-band__recommend">
+              <div className="rv-band__recommend-pct">98%</div>
+              <div className="rv-band__recommend-label">would recommend</div>
             </div>
           </div>
-          <div className="rv-band__divider" />
-          <div className="rv-band__platforms">
-            {[
-              { name: 'Google',    score: '4.9' },
-              { name: 'Facebook',  score: '4.8' },
-              { name: 'Nairaland', score: '4.9' },
-            ].map((p) => (
-              <div key={p.name} className="rv-band__platform">
-                <div className="rv-band__platform-score">{p.score} ★</div>
-                <div className="rv-band__platform-name">{p.name}</div>
-              </div>
-            ))}
-          </div>
-          <div className="rv-band__divider" />
-          <div className="rv-band__recommend">
-            <div className="rv-band__recommend-pct">98%</div>
-            <div className="rv-band__recommend-label">would recommend</div>
-          </div>
         </div>
-      </div>
+      </Reveal>
 
       {/* ── Filter Bar ── */}
       <div className="rv-filterbar">
@@ -421,20 +424,24 @@ export default function TestimonialsPage({ navigate }) {
       </div>
 
       {/* ── Reviews Bento Grid ── */}
-      <section className="rv-section">
-        <div className="rv-section__inner">
-          {bentoItems.length > 0 ? (
-            <div className={`rv-bento${isFiltered ? ' rv-bento--flat' : ''}`}>
-              {bentoItems.map((r) => renderCard(r))}
-            </div>
-          ) : (
-            <div className="rv-empty">No reviews match that filter.</div>
-          )}
-        </div>
-      </section>
+      <Reveal delay={60}>
+        <section className="rv-section">
+          <div className="rv-section__inner">
+            {bentoItems.length > 0 ? (
+              <div className={`rv-bento${isFiltered ? ' rv-bento--flat' : ''}`}>
+                {bentoItems.map((r) => renderCard(r))}
+              </div>
+            ) : (
+              <div className="rv-empty">No reviews match that filter.</div>
+            )}
+          </div>
+        </section>
+      </Reveal>
 
       {/* ── How We Verify ── */}
-      <HowWeVerify />
+      <Reveal delay={120}>
+        <HowWeVerify />
+      </Reveal>
 
       {/* ── Sticky FAB ── */}
       <button className="rv-fab" onClick={() => setModalOpen(true)}>
