@@ -24,7 +24,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const showNav = page !== 'home' && page !== 'property' && page !== 'rentals' && page !== 'agents' && page !== 'testimonials' && page !== 'faq'
+  const showNav = page !== 'home' && page !== 'property' && page !== 'rentals' && page !== 'agents' && page !== 'testimonials' && page !== 'faq' && page !== 'contact'
 
   const pages = {
     home: <HomePage navigate={navigate} page={page} />,
