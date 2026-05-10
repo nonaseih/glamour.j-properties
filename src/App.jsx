@@ -11,6 +11,7 @@ import ApplyPage from './pages/ApplyPage'
 import TestimonialsPage from './pages/TestimonialsPage'
 import FAQPage from './pages/FAQPage'
 import PropertyDetailPage from './pages/PropertyDetailPage'
+import LegalPage from './pages/LegalPage'
 
 export default function App() {
   const [page, setPage] = useState('home')
@@ -24,7 +25,7 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const showNav = page !== 'home' && page !== 'property' && page !== 'rentals' && page !== 'agents' && page !== 'testimonials' && page !== 'faq' && page !== 'contact' && page !== 'apply'
+  const showNav = page !== 'home' && page !== 'property' && page !== 'rentals' && page !== 'agents' && page !== 'testimonials' && page !== 'faq' && page !== 'contact' && page !== 'apply' && page !== 'privacy' && page !== 'terms' && page !== 'cookies'
 
   const pages = {
     home: <HomePage navigate={navigate} page={page} />,
@@ -35,6 +36,9 @@ export default function App() {
     testimonials: <TestimonialsPage navigate={navigate} />,
     faq: <FAQPage navigate={navigate} />,
     property: <PropertyDetailPage navigate={navigate} propertyId={propertyId} fromPage={fromPage} />,
+    privacy:  <LegalPage navigate={navigate} type="privacy" />,
+    terms:    <LegalPage navigate={navigate} type="terms" />,
+    cookies:  <LegalPage navigate={navigate} type="cookies" />,
   }
 
   return (

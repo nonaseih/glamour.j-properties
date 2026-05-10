@@ -743,6 +743,10 @@ p { line-height: 1.7; }
   font-size: 0.78rem;
   color: rgba(237,228,212,0.22);
   transition: color var(--transition);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .footer-bottom__link:hover { color: rgba(237,228,212,0.55); }
@@ -2567,7 +2571,7 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   border: 1px solid rgba(237,228,212,0.08);
   border-radius: 20px;
   padding: 32px 36px;
-  margin-bottom: 16px;
+  margin-bottom: 28px;
 }
 
 .pd__card:last-child { margin-bottom: 0; }
@@ -5831,6 +5835,12 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   cursor: pointer;
   letter-spacing: 0.02em;
   transition: filter 0.18s;
+}
+
+.cs-wall__btn--back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* ══════════════════════════════════════════

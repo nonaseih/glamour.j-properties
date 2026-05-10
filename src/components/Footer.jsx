@@ -199,9 +199,9 @@ export default function Footer({ navigate }) {
             © {new Date().getFullYear()} Jay. G Properties &amp; Rentals. All rights reserved.
           </p>
           <div className="footer-bottom__links">
-            <a href="#" className="footer-bottom__link">Privacy</a>
-            <a href="#" className="footer-bottom__link">Terms</a>
-            <a href="#" className="footer-bottom__link">Cookies</a>
+            <button className="footer-bottom__link" onClick={() => navigate('privacy')}>Privacy</button>
+            <button className="footer-bottom__link" onClick={() => navigate('terms')}>Terms</button>
+            <button className="footer-bottom__link" onClick={() => navigate('cookies')}>Cookies</button>
           </div>
         </div>
 
