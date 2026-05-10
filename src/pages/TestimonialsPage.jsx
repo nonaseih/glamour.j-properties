@@ -347,12 +347,14 @@ export default function TestimonialsPage({ navigate }) {
     <div className="rv-page">
 
       {/* ── Hero ── */}
-      <div className="rv-hero">
-        <HeroNav navigate={navigate} page="testimonials" />
-        <div className="rv-hero__content">
-          <p className="rv-hero__eyebrow">Client Stories</p>
-          <h1 className="rv-hero__title">What Our Tenants Say</h1>
-          <p className="rv-hero__sub">Hundreds of families have found their home through Jay G Properties.</p>
+      <div className="rv-hero-stage">
+        <div className="rv-hero">
+          <HeroNav navigate={navigate} page="testimonials" />
+          <div className="rv-hero__content">
+            <p className="rv-hero__eyebrow">Client Stories</p>
+            <h1 className="rv-hero__title">What Our<br /><em>Tenants Say</em></h1>
+            <p className="rv-hero__sub">Hundreds of families have found their home through Jay G Properties.</p>
+          </div>
         </div>
       </div>
 
