@@ -3969,27 +3969,35 @@ button.hero-stat__tag:hover { opacity: 0.82; }
 
 /* Property card (rl-pc) — glass dark */
 .rl-pc {
-  background: rgba(20,10,4,0.52);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(237,228,212,0.09);
+  background: #C8B49A;
+  border: 1px solid #B8A088;
   border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 150ms ease-out, background 150ms ease-out, border-color 150ms ease-out;
+  transition: transform 150ms ease-out, background 150ms ease-out;
   display: flex;
   flex-direction: column;
 }
 
 .rl-pc:hover {
   transform: translateY(-3px);
-  background: rgba(20,10,4,0.68);
-  border-color: rgba(237,228,212,0.18);
+  background: #BEA88E;
+}
+
+.rl-pc__placeholder-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(237,228,212,0.1);
+  pointer-events: none;
 }
 
 .rl-pc__img {
   height: 180px;
-  background: rgba(237,228,212,0.05);
+  background: rgba(20,10,4,0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   position: relative;
   display: flex;
   align-items: flex-start;

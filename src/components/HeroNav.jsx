@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { MessageCircle } from 'lucide-react'
 import { WA_BASE } from '../data'
 
 const NAV_LINKS = [

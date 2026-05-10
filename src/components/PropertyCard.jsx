@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Home } from 'lucide-react'
 import { formatPrice, WA_BASE } from '../data'
 
 const STATUS_CLASS = { available: 'rl-pc__badge--available', pending: 'rl-pc__badge--pending', rented: 'rl-pc__badge--rented' }
@@ -15,6 +16,7 @@ export default function PropertyCard({ property, onViewDetails }) {
 
       {/* Image area */}
       <div className="rl-pc__img">
+        <Home size={48} strokeWidth={0.8} className="rl-pc__placeholder-icon" />
         <span className={`rl-pc__badge ${STATUS_CLASS[status] ?? ''}`}>{STATUS_LABEL[status]}</span>
         {featured && <span className="rl-pc__badge rl-pc__badge--feat">★ Featured</span>}
         <button
