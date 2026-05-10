@@ -765,5 +765,5 @@ export const formatPrice = (n) => {
   return `₦${n.toLocaleString()}`
 }
 
-export const WA_NUMBER = '2348020000001'
+export const WA_NUMBER = '2348133410003'
 export const WA_BASE = `https://wa.me/${WA_NUMBER}`

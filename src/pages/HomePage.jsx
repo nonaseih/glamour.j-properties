@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Users, Eye, ShieldCheck, Zap, Gem, MapPin } from 'lucide-react'
 import { properties, values, formatPrice, WA_BASE } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
+import certImg from '../assets/C jay.jpg'
 import HeroNav from '../components/HeroNav'
 const FEAT_VIDEOS = [
   'https://res.cloudinary.com/dqrssdcmu/video/upload/v1778335442/glamourj-featured-1.mp4',
@@ -44,6 +45,7 @@ function ProgressRing({ pct = 98, r = 26 }) {
 export default function HomePage({ navigate, page }) {
   const featured = properties.filter((p) => p.featured)
   const currentPage = page || 'home'
+  const [certOpen, setCertOpen] = useState(false)
   const [videoPaused, setVideoPaused] = useState([false, false, false])
   const [videoRevealed, setVideoRevealed] = useState(false)
   const [spotlightRevealed, setSpotlightRevealed] = useState(false)
@@ -363,6 +365,39 @@ export default function HomePage({ navigate, page }) {
 
         </div>
       </div>
+
+      {/* ── Certificate Strip ── */}
+      <div className="cert-stage">
+        <div className="cert-strip">
+          <div className="cert-info">
+            <div className="cert-badge">
+              <ShieldCheck size={13} strokeWidth={2} />
+              CAC Registered Business
+            </div>
+            <h3 className="cert-title">Officially Licensed &amp; Registered</h3>
+            <p className="cert-sub">
+              Jay. G Properties &amp; Rentals is a fully registered business with the
+              Corporate Affairs Commission of Nigeria — operating transparently since 2012.
+            </p>
+          </div>
+          <button className="cert-thumb-btn" onClick={() => setCertOpen(true)} aria-label="View certificate of registration">
+            <img className="cert-thumb" src={certImg} alt="Certificate of Registration" />
+            <div className="cert-thumb__overlay">
+              <span className="cert-thumb__cta">View Certificate →</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      {/* Certificate Lightbox */}
+      {certOpen && (
+        <div className="cert-overlay" onClick={() => setCertOpen(false)}>
+          <div className="cert-lightbox" onClick={(e) => e.stopPropagation()}>
+            <button className="cert-lightbox__close" onClick={() => setCertOpen(false)} aria-label="Close">✕</button>
+            <img className="cert-lightbox__img" src={certImg} alt="Certificate of Registration" />
+          </div>
+        </div>
+      )}
 
       {/* ── Featured Spotlight ── */}
       <div className={`spotlight-stage${spotlightRevealed ? ' spotlight-stage--revealed' : ''}`} ref={spotlightRef}>

@@ -17,15 +17,9 @@ const IG_SVG = (
   </svg>
 )
 
-const FB_SVG = (
+const SC_SVG = (
   <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-  </svg>
-)
-
-const X_SVG = (
-  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    <path d="M12.166.006C8.95.006 6.29 1.94 5.399 4.776c-.36 1.14-.27 2.628-.18 3.714-.3.12-.624.18-.948.18-.444 0-.876-.12-1.2-.312a.438.438 0 0 0-.228-.066c-.348 0-.612.264-.612.612 0 .276.168.516.432.612.084.024 1.776.528 1.956 1.596.012.072.024.144.042.204-.678.792-2.148 1.524-2.544 1.746-.516.3-.786.78-.654 1.272.126.432.552.726 1.086.726.108 0 .222-.012.33-.042.378-.102 1.296-.3 2.364-.3.42 0 .846.036 1.272.114a3.132 3.132 0 0 0-.054.618c0 1.71 1.398 3.108 3.108 3.108 1.71 0 3.108-1.398 3.108-3.108 0-.21-.018-.42-.054-.618.426-.078.852-.114 1.272-.114 1.068 0 1.986.198 2.364.3.108.03.222.042.33.042.534 0 .96-.294 1.086-.726.132-.492-.138-.972-.654-1.272-.396-.222-1.866-.954-2.544-1.746.018-.06.03-.132.042-.204.18-1.068 1.872-1.572 1.956-1.596.264-.096.432-.336.432-.612 0-.348-.264-.612-.612-.612a.438.438 0 0 0-.228.066c-.324.192-.756.312-1.2.312-.324 0-.648-.06-.948-.18.09-1.086.18-2.574-.18-3.714C17.842 1.94 15.182.006 12.166.006z"/>
   </svg>
 )
 
@@ -36,11 +30,11 @@ const TT_SVG = (
 )
 
 const SOCIALS = [
-  { label: 'WhatsApp',       handle: '+234 802 000 0001',          color: '#25D366', bg: 'rgba(37,211,102,0.12)',  svg: WA_SVG, href: WA_BASE + '?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20property.' },
-  { label: 'Instagram',      handle: '@jaygproperties',             color: '#E1306C', bg: 'rgba(225,48,108,0.1)',   svg: IG_SVG, href: '#' },
-  { label: 'Facebook',       handle: 'Jay G Properties & Rentals',  color: '#1877F2', bg: 'rgba(24,119,242,0.1)',   svg: FB_SVG, href: '#' },
-  { label: 'X (Twitter)',    handle: '@jaygproperties',             color: '#000',    bg: 'rgba(0,0,0,0.07)',       svg: X_SVG,  href: '#' },
-  { label: 'TikTok',         handle: '@jaygproperties',             color: '#010101', bg: 'rgba(0,0,0,0.07)',       svg: TT_SVG, href: '#' },
+  { label: 'WhatsApp',                handle: '0813 341 0003',          color: '#25D366', bg: 'rgba(37,211,102,0.12)',  svg: WA_SVG, href: WA_BASE + '?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20property.' },
+  { label: 'Instagram @exclusive_chateau', handle: '@exclusive_chateau',  color: '#E1306C', bg: 'rgba(225,48,108,0.1)',   svg: IG_SVG, href: 'https://www.instagram.com/exclusive_chateau?igsh=MTZhbGJjajBkMmtweg%3D%3D&utm_source=qr' },
+  { label: 'Instagram @property_mgr',      handle: '@property_mgr',       color: '#E1306C', bg: 'rgba(225,48,108,0.1)',   svg: IG_SVG, href: 'https://www.instagram.com/property_mgr?igsh=c3F3NW4wamNmZm4y&utm_source=qr' },
+  { label: 'Snapchat',                     handle: 'exclusive_chateau',    color: '#8a7200', bg: 'rgba(255,235,0,0.14)',   svg: SC_SVG, href: 'https://snapchat.com/t/qC3xViDh' },
+  { label: 'TikTok',                       handle: '@property_elite',      color: '#010101', bg: 'rgba(0,0,0,0.07)',       svg: TT_SVG, href: 'https://www.tiktok.com/@property_elite?_r=1&_t=ZS-95oBOwMlS68' },
 ]
 
 const TOPICS = ['General Enquiry', 'Book a Viewing', 'Property Not Listed', 'Tenancy Issue', 'Other']
