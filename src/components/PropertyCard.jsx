@@ -1,79 +1,67 @@
+import { useState } from 'react'
 import { formatPrice, WA_BASE } from '../data'
 
-const BED_ICON = '🛏'
-const BATH_ICON = '🚿'
-const PARK_ICON = '🚗'
-const PIN_ICON = '📍'
+const STATUS_CLASS = { available: 'rl-pc__badge--available', pending: 'rl-pc__badge--pending', rented: 'rl-pc__badge--rented' }
+const STATUS_LABEL = { available: '● Available', pending: '◌ Pending', rented: '○ Rented' }
 
-const STATUS_BADGE = {
-  available: 'badge-available',
-  rented: 'badge-rented',
-  pending: 'badge-pending',
-}
+export default function PropertyCard({ property, onViewDetails }) {
+  const { title, location, bedrooms, bathrooms, parking, price, priceNote, status, featured } = property
+  const [faved, setFaved] = useState(false)
 
-const STATUS_LABEL = {
-  available: 'Available',
-  rented: 'Rented',
-  pending: 'Pending',
-}
-
-export default function PropertyCard({ property, onViewDetails, navigate }) {
-  const { title, location, bedrooms, bathrooms, parking, price, status, featured } = property
-
-  const waHref = `${WA_BASE}?text=Hi%2C%20I%27m%20interested%20in%20the%20${encodeURIComponent(title)}%20in%20${encodeURIComponent(location)}.`
+  const waHref = `${WA_BASE}?text=${encodeURIComponent(`Hi, I'm interested in the ${title} in ${location}.`)}`
 
   return (
-    <div className="prop-card">
-      <div className="prop-card__img img-placeholder">
-        <div className={`prop-card__badge badge ${STATUS_BADGE[status]}`}>
-          {STATUS_LABEL[status]}
-        </div>
-        {featured && (
-          <div style={{ position: 'absolute', top: '0.75rem', right: '2.75rem' }}>
-            <span className="badge badge-featured">Featured</span>
-          </div>
-        )}
-        <span>{title}</span>
+    <div className="rl-pc" onClick={() => onViewDetails?.(property)}>
+
+      {/* Image area */}
+      <div className="rl-pc__img">
+        <span className={`rl-pc__badge ${STATUS_CLASS[status] ?? ''}`}>{STATUS_LABEL[status]}</span>
+        {featured && <span className="rl-pc__badge rl-pc__badge--feat">★ Featured</span>}
+        <button
+          className={`rl-pc__fav${faved ? ' rl-pc__fav--on' : ''}`}
+          onClick={(e) => { e.stopPropagation(); setFaved((f) => !f) }}
+          aria-pressed={faved}
+          aria-label={faved ? 'Remove from favorites' : 'Add to favorites'}
+        >
+          {faved ? '♥' : '♡'}
+        </button>
       </div>
 
-      <div className="prop-card__body">
-        <div className="prop-card__price">
-          {formatPrice(price)}
-          <span className="prop-card__price-period"> / year</span>
-        </div>
-        <p className="prop-card__title">{title}</p>
-        <p className="prop-card__location">
-          <span style={{ fontSize: '0.8rem' }}>{PIN_ICON}</span>
-          {location}
-        </p>
-
-        <div className="prop-card__divider" />
-
-        <div className="prop-card__features">
-          <span className="prop-card__feature">
-            {BED_ICON} {bedrooms} Bed{bedrooms !== 1 ? 's' : ''}
-          </span>
-          <span className="prop-card__feature">
-            {BATH_ICON} {bathrooms} Bath{bathrooms !== 1 ? 's' : ''}
-          </span>
-          <span className="prop-card__feature">
-            {PARK_ICON} {parking} Park
-          </span>
+      {/* Body */}
+      <div className="rl-pc__body">
+        <div className="rl-pc__top">
+          <div className="rl-pc__title-col">
+            <div className="rl-pc__title">{title}</div>
+            <div className="rl-pc__loc">📍 {location}</div>
+          </div>
+          <div className="rl-pc__price-col">
+            <div className="rl-pc__price">{formatPrice(price)}</div>
+            <div className="rl-pc__period">{priceNote ?? '/year'}</div>
+          </div>
         </div>
 
-        <div className="prop-card__actions">
+        <div className="rl-pc__divider" />
+
+        <div className="rl-pc__feats">
+          <span>🛏 {bedrooms} Bed{bedrooms !== 1 ? 's' : ''}</span>
+          <span>🚿 {bathrooms} Bath{bathrooms !== 1 ? 's' : ''}</span>
+          <span>🚗 {parking} Park</span>
+        </div>
+
+        <div className="rl-pc__actions">
           <button
-            className="btn btn-outline-accent btn-sm"
-            onClick={() => onViewDetails && onViewDetails(property)}
+            className="rl-pc__btn rl-pc__btn--outline"
+            onClick={(e) => { e.stopPropagation(); onViewDetails?.(property) }}
           >
             View Details
           </button>
           {status === 'available' && (
             <a
               href={waHref}
-              className="btn btn-primary btn-sm"
+              className="rl-pc__btn rl-pc__btn--enquire"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
             >
               Enquire
             </a>
