@@ -4130,7 +4130,7 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   margin-bottom: 60px;
 }
 
-.rl-empty__icon { font-size: 3rem; opacity: 0.35; margin-bottom: 16px; }
+.rl-empty__icon { font-size: 3rem; opacity: 0.55; margin-bottom: 16px; }
 
 .rl-empty__h {
   font-family: var(--font-body);
@@ -4143,7 +4143,7 @@ button.hero-stat__tag:hover { opacity: 0.82; }
 .rl-empty__sub {
   font-family: var(--font-display);
   font-size: 0.84rem;
-  color: rgba(237,228,212,0.35);
+  color: rgba(237,228,212,0.6);
 }
 
 .rl-empty__reset {

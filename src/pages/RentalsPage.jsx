@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from 'react'
 import PropertyCard from '../components/PropertyCard'
+import HeroNav from '../components/HeroNav'
 import { properties, formatPrice, WA_BASE } from '../data'
 import { Search, SlidersHorizontal, X, ChevronLeft, ChevronRight, Check } from 'lucide-react'
 
@@ -315,6 +316,7 @@ export default function RentalsPage({ navigate }) {
 
       {/* ── Hero ── */}
       <div className="rl-hero">
+        <HeroNav navigate={navigate} page="rentals" />
         <div className="rl-hero__overlay" />
 
         <div className="rl-hero__content">
