@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react'
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
 import HouseLogo from './HouseLogo'
 import { WA_BASE } from '../data'
@@ -22,8 +23,22 @@ const SOCIALS = [
 ]
 
 export default function Footer({ navigate }) {
+  const [revealed, setRevealed] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => setRevealed(entry.isIntersecting),
+      { threshold: 0.1 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
   return (
-    <footer className="footer-stage">
+    <footer className={`footer-stage${revealed ? ' footer-stage--revealed' : ''}`} ref={ref}>
       <div className="footer-wrap">
 
         {/* ── CTA ── */}

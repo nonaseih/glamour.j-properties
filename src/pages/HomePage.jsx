@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { Users, Eye, ShieldCheck, Zap, Gem, MapPin } from 'lucide-react'
 import { properties, values, formatPrice, WA_BASE } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
-import featVideo1 from '../assets/Properties Videos/Featured 1.mp4'
-import featVideo2 from '../assets/Properties Videos/Featured 2.mp4'
-import featVideo3 from '../assets/Properties Videos/Featured 3.mp4'
-
-const FEAT_VIDEOS = [featVideo1, featVideo2, featVideo3]
+const FEAT_VIDEOS = [
+  'https://res.cloudinary.com/dqrssdcmu/video/upload/v1778335442/glamourj-featured-1.mp4',
+  'https://res.cloudinary.com/dqrssdcmu/video/upload/v1778335484/glamourj-featured-2.mp4',
+  'https://res.cloudinary.com/dqrssdcmu/video/upload/v1778335521/glamourj-featured-3.mp4',
+]
 
 const NAV_LINKS = [
   { id: 'home',         label: 'Home' },
@@ -64,6 +64,7 @@ export default function HomePage({ navigate, page }) {
   const featured = properties.filter((p) => p.featured)
   const currentPage = page || 'home'
   const [navScrolled, setNavScrolled] = useState(false)
+  const [videoPaused, setVideoPaused] = useState([false, false, false])
   const [videoRevealed, setVideoRevealed] = useState(false)
   const [spotlightRevealed, setSpotlightRevealed] = useState(false)
   const [aboutRevealed, setAboutRevealed] = useState(false)
@@ -147,6 +148,18 @@ export default function HomePage({ navigate, page }) {
     obs.observe(el)
     return () => obs.disconnect()
   }, [])
+
+  const toggleVideo = (idx) => {
+    const video = videoRefs[idx].current
+    if (!video) return
+    if (video.paused) {
+      video.play().catch(() => {})
+      setVideoPaused(s => s.map((v, i) => i === idx ? false : v))
+    } else {
+      video.pause()
+      setVideoPaused(s => s.map((v, i) => i === idx ? true : v))
+    }
+  }
 
   return (
     <>
@@ -248,7 +261,7 @@ export default function HomePage({ navigate, page }) {
             <div className="hero-stat hero-stat--dark">
               <div className="hero-stat__ring-row">
                 <ProgressRing pct={98} r={22} />
-                <div className="hero-stat__chip">↗</div>
+                <button className="hero-stat__chip" onClick={() => navigate('testimonials')} aria-label="View tenant reviews">↗</button>
               </div>
               <span className="hero-stat__label">Tenant Trust</span>
               <div className="hero-stat__num">98%</div>
@@ -267,14 +280,14 @@ export default function HomePage({ navigate, page }) {
                   <span className="hero-stat__dual-label">Years in Market</span>
                 </div>
               </div>
-              <div className="hero-stat__peach-chip">↗</div>
+              <button className="hero-stat__peach-chip" onClick={() => navigate('agents')} aria-label="Meet our agents">↗</button>
             </div>
 
             {/* Card 4 — white: Rating + Testimonial */}
             <div className="hero-stat hero-stat--white">
               <div className="hero-stat__top-row">
                 <div className="hero-stat__num" style={{ marginTop: 0 }}>4.9★</div>
-                <span className="hero-stat__tag">Top rated</span>
+                <button className="hero-stat__tag" onClick={() => navigate('testimonials')} aria-label="Read all reviews">Top rated</button>
               </div>
               <p className="hero-stat__quote">
                 "Moving into our Maitama home was seamless — Jay. G handled everything."
@@ -297,7 +310,7 @@ export default function HomePage({ navigate, page }) {
               How It Works
             </button>
             <div className="hero-foot__icons">
-              <button className="hero-foot__icon-btn" aria-label="Help">?</button>
+              <button className="hero-foot__icon-btn" aria-label="Help" onClick={() => navigate('faq')}>?</button>
               <button className="hero-foot__icon-btn" aria-label="Browse properties" onClick={() => navigate('rentals')}>→</button>
             </div>
           </div>
@@ -435,12 +448,19 @@ export default function HomePage({ navigate, page }) {
               />
               <div className="spotlight-media__ui">
                 <span className="spotlight-media__tag">Property Tour</span>
-                <button className="spotlight-media__play" aria-label="Play tour">
+                <button
+                  className="spotlight-media__play"
+                  aria-label={videoPaused[0] ? 'Play tour' : 'Pause tour'}
+                  onClick={() => toggleVideo(0)}
+                >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
+                    {videoPaused[0]
+                      ? <path d="M8 5v14l11-7z" />
+                      : <><rect x="6" y="5" width="4" height="14" /><rect x="14" y="5" width="4" height="14" /></>
+                    }
                   </svg>
                 </button>
-                <span className="spotlight-media__hint">Auto-plays on reveal</span>
+                <span className="spotlight-media__hint">{videoPaused[0] ? 'Click to play' : 'Click to pause'}</span>
               </div>
             </div>
             <div className="spotlight-info">
@@ -493,9 +513,16 @@ export default function HomePage({ navigate, page }) {
                     <div className="spotlight-media__ui">
                       <span className="spotlight-media__tag">Property Tour</span>
                       {FEAT_VIDEOS[idx] && (
-                        <button className="spotlight-media__play" aria-label="Play tour">
+                        <button
+                          className="spotlight-media__play"
+                          aria-label={videoPaused[idx] ? 'Play tour' : 'Pause tour'}
+                          onClick={() => toggleVideo(idx)}
+                        >
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
+                            {videoPaused[idx]
+                              ? <path d="M8 5v14l11-7z" />
+                              : <><rect x="6" y="5" width="4" height="14" /><rect x="14" y="5" width="4" height="14" /></>
+                            }
                           </svg>
                         </button>
                       )}
