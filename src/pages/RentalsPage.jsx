@@ -287,6 +287,29 @@ function PropertyModal({ property, onClose, navigate }) {
   )
 }
 
+/* ── Skeleton card ───────────────────────────────────────── */
+function SkeletonCard() {
+  return (
+    <div className="rl-skel">
+      <div className="rl-skel__img" />
+      <div className="rl-skel__body">
+        <div className="rl-skel__line" style={{ width: '68%' }} />
+        <div className="rl-skel__line" style={{ width: '44%' }} />
+        <div className="rl-skel__divider" />
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <div className="rl-skel__line" style={{ flex: 1, height: '8px' }} />
+          <div className="rl-skel__line" style={{ flex: 1, height: '8px' }} />
+          <div className="rl-skel__line" style={{ flex: 1, height: '8px' }} />
+        </div>
+        <div style={{ display: 'flex', gap: '8px', marginTop: '4px' }}>
+          <div className="rl-skel__line" style={{ flex: 1, height: '34px', borderRadius: '6px' }} />
+          <div className="rl-skel__line" style={{ flex: 1, height: '34px', borderRadius: '6px' }} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /* ── Main page ───────────────────────────────────────────── */
 export default function RentalsPage({ navigate }) {
   const [filters, setFilters]     = useState(DEFAULT_FILTERS)
@@ -294,6 +317,12 @@ export default function RentalsPage({ navigate }) {
   const [selected, setSelected]   = useState(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [stuck, setStuck]         = useState(false)
+  const [cardsReady, setCardsReady] = useState(false)
+
+  useEffect(() => {
+    const t = setTimeout(() => setCardsReady(true), 650)
+    return () => clearTimeout(t)
+  }, [])
 
   const set = (key, val) => setFilters((f) => ({ ...f, [key]: val }))
   const toggleType     = (t) => set('types',     toggleArr(filters.types, t))
@@ -581,14 +610,17 @@ export default function RentalsPage({ navigate }) {
             </div>
           ) : (
             <div className="rl-grid">
-              {filtered.map((p) => (
-                <PropertyCard
-                  key={p.id}
-                  property={p}
-                  navigate={navigate}
-                  onViewDetails={setSelected}
-                />
-              ))}
+              {cardsReady
+                ? filtered.map((p) => (
+                    <PropertyCard
+                      key={p.id}
+                      property={p}
+                      navigate={navigate}
+                      onViewDetails={setSelected}
+                    />
+                  ))
+                : Array.from({ length: 8 }, (_, i) => <SkeletonCard key={i} />)
+              }
             </div>
           )}
 
