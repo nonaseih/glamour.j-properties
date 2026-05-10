@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from 'react'
+import gsap from 'gsap'
 import PropertyCard from '../components/PropertyCard'
 import HeroNav from '../components/HeroNav'
 import { properties, formatPrice, WA_BASE } from '../data'
@@ -126,9 +127,44 @@ function PropertyModal({ property, onClose, navigate }) {
     `Hi, I'm interested in the ${title} in ${location}. Could you tell me more about availability and viewings?`
   )}`
 
+  const overlayRef = useRef(null)
+  const modalRef   = useRef(null)
+  const bodyRef    = useRef(null)
+  const barRef     = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(overlayRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.25, ease: 'power2.out' }
+      )
+      gsap.fromTo(modalRef.current,
+        { opacity: 0, y: 60, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'power3.out' }
+      )
+    })
+    return () => ctx.revert()
+  }, [property.id])
+
+  useEffect(() => {
+    const el = bodyRef.current
+    const bar = barRef.current
+    if (!el || !bar) return
+    const onScroll = () => {
+      const pct = el.scrollTop / (el.scrollHeight - el.clientHeight) || 0
+      bar.style.width = `${pct * 100}%`
+    }
+    el.addEventListener('scroll', onScroll, { passive: true })
+    return () => el.removeEventListener('scroll', onScroll)
+  }, [property.id])
+
   return (
-    <div className="rl-overlay" onClick={(e) => e.target === e.currentTarget && onClose()}>
-      <div className="rl-modal">
+    <div className="rl-overlay" ref={overlayRef} onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div className="rl-modal" ref={modalRef}>
+        {/* Scroll progress line */}
+        <div className="rl-modal__scroll-track">
+          <div className="rl-modal__scroll-bar" ref={barRef} />
+        </div>
         {/* Header image placeholder */}
         <div className="rl-modal__hero">
           <span className={`rl-modal__status rl-modal__status--${status}`}>
@@ -138,7 +174,7 @@ function PropertyModal({ property, onClose, navigate }) {
         </div>
 
         {/* Body */}
-        <div className="rl-modal__body">
+        <div className="rl-modal__body" ref={bodyRef}>
 
           {/* Price + title */}
           <div className="rl-modal__top">

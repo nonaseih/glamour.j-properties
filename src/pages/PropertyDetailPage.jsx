@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
+import gsap from 'gsap'
 import {
   ArrowLeft, MapPin, Bed, Bath, Car, Maximize2,
   Phone, Mail, ChevronDown, Volume2, VolumeX, Check,
@@ -25,11 +26,15 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
   const agent    = agents.find((a) => a.id === property.agent)
   const video    = PROPERTY_VIDEOS[property.id] ?? null
 
-  const videoRef     = useRef(null)
-  const overviewRef  = useRef(null)
-  const amenitiesRef = useRef(null)
-  const feesRef      = useRef(null)
-  const agentRef     = useRef(null)
+  const videoRef      = useRef(null)
+  const overviewRef   = useRef(null)
+  const amenitiesRef  = useRef(null)
+  const feesRef       = useRef(null)
+  const agentRef      = useRef(null)
+  const pageRef       = useRef(null)
+  const heroContentRef = useRef(null)
+  const statsBandRef  = useRef(null)
+  const bodyRef       = useRef(null)
 
   const sectionRefs = { overview: overviewRef, amenities: amenitiesRef, fees: feesRef, agent: agentRef }
 
@@ -39,6 +44,34 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
 
   useEffect(() => {
     videoRef.current?.play().catch(() => {})
+  }, [property.id])
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+      tl.fromTo(pageRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.35 }
+      )
+      .fromTo(heroContentRef.current,
+        { opacity: 0, y: 48 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        '-=0.15'
+      )
+      .fromTo(statsBandRef.current?.querySelectorAll('.pd__statsband-item') ?? [],
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.45, stagger: 0.08 },
+        '-=0.25'
+      )
+      .fromTo(bodyRef.current?.querySelectorAll('.pd__card, .pd__sidebar-card') ?? [],
+        { opacity: 0, y: 32 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 },
+        '-=0.2'
+      )
+    })
+
+    return () => ctx.revert()
   }, [property.id])
 
   useEffect(() => {
@@ -77,7 +110,7 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
   const total = fees.reduce((s, [, v]) => s + (v || 0), 0)
 
   return (
-    <div className="pd">
+    <div className="pd" ref={pageRef}>
 
       {/* ── Fixed back button ── */}
       <button className="pd__back" onClick={() => navigate(fromPage || 'rentals')}>
@@ -112,7 +145,7 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
           </button>
         )}
 
-        <div className="pd__hero-content">
+        <div className="pd__hero-content" ref={heroContentRef}>
           <div className="pd__hero-badges">
             <span className={`pd__badge pd__badge--${property.status}`}>
               {property.status === 'available' ? '● Available' : '◌ Pending'}
@@ -144,7 +177,7 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
       </div>
 
       {/* ── Stats band ── */}
-      <div className="pd__statsband">
+      <div className="pd__statsband" ref={statsBandRef}>
         <div className="pd__statsband-inner">
           {[
             { icon: <Bed size={24} strokeWidth={1.2} />,      num: property.bedrooms,  label: 'Bedrooms'       },
@@ -162,7 +195,7 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
       </div>
 
       {/* ── Body ── */}
-      <div className="pd__body">
+      <div className="pd__body" ref={bodyRef}>
         <div className="pd__inner">
 
           {/* ── Main ── */}

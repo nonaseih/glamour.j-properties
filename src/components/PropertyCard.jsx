@@ -21,7 +21,7 @@ export default function PropertyCard({ property, onViewDetails }) {
       {/* Image / video area */}
       <div className="rl-pc__img">
         {video
-          ? <video ref={videoRef} src={video} className="rl-pc__video" autoPlay muted loop playsInline preload="auto" />
+          ? <video ref={videoRef} src={video} className="rl-pc__video" autoPlay muted loop playsInline preload="metadata" />
           : <Home size={48} strokeWidth={0.8} className="rl-pc__placeholder-icon" />
         }
         {featured && <span className="rl-pc__badge rl-pc__badge--feat" style={{ zIndex: 2, position: 'relative' }}>★ Featured</span>}
