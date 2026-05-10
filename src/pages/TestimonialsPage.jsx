@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 import { Pen, Check, X } from 'lucide-react'
 import { testimonials, reviewStats } from '../data'
 import HeroNav from '../components/HeroNav'
+import heroImg from '../assets/JAY hero image.jpg'
 
 // ── Avatar color palette ──
 const AVATAR_COLORS = ['#8B4513', '#C06240', '#6B5B45', '#2D7A4F', '#1B4B72', '#7B3F00', '#5C3A6E']
@@ -349,6 +350,8 @@ export default function TestimonialsPage({ navigate }) {
       {/* ── Hero ── */}
       <div className="rv-hero-stage">
         <div className="rv-hero">
+          <img className="rv-hero__bg" src={heroImg} alt="" aria-hidden="true" />
+          <div className="rv-hero__vignette" />
           <HeroNav navigate={navigate} page="testimonials" />
           <div className="rv-hero__content">
             <p className="rv-hero__eyebrow">Client Stories</p>

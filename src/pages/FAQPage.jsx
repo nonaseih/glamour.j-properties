@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { faqs, WA_BASE } from '../data'
 import HeroNav from '../components/HeroNav'
+import heroImg from '../assets/JAY hero image.jpg'
 
 const CATEGORIES = ['All', 'Process', 'Costs', 'Requirements', 'Tenancy']
 
@@ -48,14 +49,18 @@ export default function FAQPage({ navigate }) {
     <div className="fq-page">
 
       {/* ── Hero ── */}
-      <div className="fq-hero">
-        <HeroNav navigate={navigate} page="faq" />
-        <div className="fq-hero__content">
-          <p className="fq-hero__eyebrow">Help Centre</p>
-          <h1 className="fq-hero__title">Frequently Asked<br />Questions</h1>
-          <p className="fq-hero__sub">
-            Everything you need to know about renting through Jay G Properties &amp; Rentals.
-          </p>
+      <div className="fq-hero-stage">
+        <div className="fq-hero">
+          <img className="fq-hero__bg" src={heroImg} alt="" aria-hidden="true" />
+          <div className="fq-hero__vignette" />
+          <HeroNav navigate={navigate} page="faq" />
+          <div className="fq-hero__content">
+            <p className="fq-hero__eyebrow">Help Centre</p>
+            <h1 className="fq-hero__title">Frequently Asked<br />Questions</h1>
+            <p className="fq-hero__sub">
+              Everything you need to know about renting through Jay G Properties &amp; Rentals.
+            </p>
+          </div>
         </div>
       </div>
 
