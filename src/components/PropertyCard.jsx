@@ -1,25 +1,32 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Home } from 'lucide-react'
 import { formatPrice, WA_BASE } from '../data'
-
-const STATUS_CLASS = { available: 'rl-pc__badge--available', pending: 'rl-pc__badge--pending', rented: 'rl-pc__badge--rented' }
-const STATUS_LABEL = { available: '● Available', pending: '◌ Pending', rented: '○ Rented' }
+import { PROPERTY_VIDEOS } from '../propertyVideos'
 
 export default function PropertyCard({ property, onViewDetails }) {
   const { title, location, bedrooms, bathrooms, parking, price, priceNote, status, featured } = property
   const [faved, setFaved] = useState(false)
+  const video = PROPERTY_VIDEOS[property.id] ?? null
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {})
+  }, [])
 
   const waHref = `${WA_BASE}?text=${encodeURIComponent(`Hi, I'm interested in the ${title} in ${location}.`)}`
 
   return (
     <div className="rl-pc" onClick={() => onViewDetails?.(property)}>
 
-      {/* Image area */}
+      {/* Image / video area */}
       <div className="rl-pc__img">
-        <Home size={48} strokeWidth={0.8} className="rl-pc__placeholder-icon" />
-        <span className={`rl-pc__badge ${STATUS_CLASS[status] ?? ''}`}>{STATUS_LABEL[status]}</span>
-        {featured && <span className="rl-pc__badge rl-pc__badge--feat">★ Featured</span>}
+        {video
+          ? <video ref={videoRef} src={video} className="rl-pc__video" autoPlay muted loop playsInline preload="auto" />
+          : <Home size={48} strokeWidth={0.8} className="rl-pc__placeholder-icon" />
+        }
+        {featured && <span className="rl-pc__badge rl-pc__badge--feat" style={{ zIndex: 2, position: 'relative' }}>★ Featured</span>}
         <button
+          style={{ zIndex: 2, position: 'relative' }}
           className={`rl-pc__fav${faved ? ' rl-pc__fav--on' : ''}`}
           onClick={(e) => { e.stopPropagation(); setFaved((f) => !f) }}
           aria-pressed={faved}

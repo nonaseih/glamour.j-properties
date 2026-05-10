@@ -12,7 +12,7 @@ const NAV_LINKS = [
   ['apply',        'Apply to Rent'],
 ]
 
-const LOCATIONS = ['Maitama', 'Asokoro', 'Jahi', 'Wuse 2', 'Gwarinpa', 'Garki', 'Katampe', 'Utako']
+const LOCATIONS = ['Maitama', 'Asokoro', 'Jahi', 'Wuse 2', 'Gwarinpa', 'Garki', 'Katampe', 'Guzape', 'Lokogoma']
 
 const SOCIALS = [
   { label: 'WA', href: `${WA_BASE}?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20property.` },

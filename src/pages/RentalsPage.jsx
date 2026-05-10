@@ -5,7 +5,7 @@ import { properties, formatPrice, WA_BASE } from '../data'
 import { Search, SlidersHorizontal, X, ChevronLeft, ChevronRight, Check, Home } from 'lucide-react'
 
 const TYPES        = ['Apartment', 'Duplex', 'Bungalow', 'Villa', 'Semi-Detached', 'Mansion', 'Terrace Duplex', 'Smart Mansion']
-const DISTRICTS    = ['Maitama', 'Asokoro', 'Jahi', 'Wuse 2', 'Gwarinpa', 'Garki', 'Guzape', 'Katampe']
+const DISTRICTS    = ['Maitama', 'Asokoro', 'Jahi', 'Wuse 2', 'Gwarinpa', 'Garki', 'Guzape', 'Katampe', 'Lokogoma', 'Utako']
 const BEDS         = ['1', '2', '3', '4', '5+']
 const AMENITIES_LIST = ['Swimming Pool', 'CCTV', 'Backup Generator', 'Boys Quarters', 'Smart Home', 'Security']
 
@@ -14,10 +14,12 @@ const DEFAULT_FILTERS = {
   types: [],
   districts: [],
   beds: [],
-  maxPrice: 50,
+  maxPrice: 2000,
   availability: 'all',
   amenities: [],
 }
+
+const fmtMaxPrice = (v) => v >= 2000 ? 'Any' : v >= 1000 ? `₦${(v / 1000).toFixed(1)}B` : `₦${v}M`
 
 function toggleArr(arr, val) {
   return arr.includes(val) ? arr.filter((x) => x !== val) : [...arr, val]
@@ -95,7 +97,7 @@ function ActiveChips({ filters, set, resetFilters }) {
   filters.beds.forEach((b)      => chips.push({ label: `${b} Beds`,  remove: () => set('beds',      filters.beds.filter((x) => x !== b)) }))
   filters.amenities.forEach((a) => chips.push({ label: a,            remove: () => set('amenities', filters.amenities.filter((x) => x !== a)) }))
   if (filters.availability !== 'all') chips.push({ label: filters.availability, remove: () => set('availability', 'all') })
-  if (filters.maxPrice < 50)          chips.push({ label: `≤₦${filters.maxPrice}M`, remove: () => set('maxPrice', 50) })
+  if (filters.maxPrice < 2000)        chips.push({ label: `≤${fmtMaxPrice(filters.maxPrice)}`, remove: () => set('maxPrice', 2000) })
   if (chips.length === 0) return null
 
   return (
@@ -276,7 +278,7 @@ export default function RentalsPage({ navigate }) {
     filters.types.length + filters.districts.length + filters.beds.length +
     filters.amenities.length +
     (filters.availability !== 'all' ? 1 : 0) +
-    (filters.maxPrice < 50 ? 1 : 0)
+    (filters.maxPrice < 2000 ? 1 : 0)
 
   const filtered = useMemo(() => {
     let list = [...properties]
@@ -303,7 +305,7 @@ export default function RentalsPage({ navigate }) {
     if (filters.amenities.length)
       list = list.filter((p) => filters.amenities.every((a) => p.amenities?.includes(a)))
 
-    list = list.filter((p) => p.price <= filters.maxPrice * 1_000_000)
+    list = list.filter((p) => p.price <= filters.maxPrice * 1_000_000 || filters.maxPrice >= 2000)
 
     if (sort === 'price-asc')  list.sort((a, b) => a.price - b.price)
     else if (sort === 'price-desc') list.sort((a, b) => b.price - a.price)
@@ -437,14 +439,14 @@ export default function RentalsPage({ navigate }) {
                 <input
                   type="range"
                   className="rl-drawer__range"
-                  min={5} max={50} step={2.5}
+                  min={50} max={2000} step={50}
                   value={filters.maxPrice}
                   onChange={(e) => set('maxPrice', Number(e.target.value))}
                 />
                 <div className="rl-drawer__range-vals">
-                  <span>₦5M</span>
+                  <span>₦50M</span>
                   <span className="rl-drawer__range-cur">
-                    {filters.maxPrice >= 50 ? 'Any' : `₦${filters.maxPrice}M`}
+                    {fmtMaxPrice(filters.maxPrice)}
                   </span>
                   <span>Any</span>
                 </div>

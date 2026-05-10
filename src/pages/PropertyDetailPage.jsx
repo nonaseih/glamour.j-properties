@@ -4,12 +4,7 @@ import {
   Phone, Mail, ChevronDown, Volume2, VolumeX, Check,
 } from 'lucide-react'
 import { properties, agents, formatPrice, WA_BASE } from '../data'
-import featVideo1 from '../assets/Properties Videos/Featured 1.mp4'
-import featVideo2 from '../assets/Properties Videos/Featured 2.mp4'
-import featVideo3 from '../assets/Properties Videos/Featured 3.mp4'
-import propVideo1 from '../assets/Properties Videos/p1.mp4'
-
-const PROPERTY_VIDEOS = { 7: featVideo1, 8: featVideo2, 9: featVideo3, 1: propVideo1 }
+import { PROPERTY_VIDEOS } from '../propertyVideos'
 
 const WA_SVG = (
   <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true">
