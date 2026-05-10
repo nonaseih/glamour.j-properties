@@ -6570,4 +6570,308 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   .rv-toast { font-size: 0.8rem; padding: 12px 18px; white-space: normal; text-align: center; max-width: 90vw; }
 }
 
+/* ══════════════════════════════════════════
+   FAQ PAGE  (fq-*)
+══════════════════════════════════════════ */
+
+.fq-page {
+  min-height: 100vh;
+  background: var(--paper);
+}
+
+/* ── Hero ── */
+.fq-hero {
+  position: relative;
+  background: #1E1008;
+  padding-bottom: 72px;
+  overflow: hidden;
+}
+.fq-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 100%, rgba(192,98,64,0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+.fq-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 88px 24px 0;
+  text-align: center;
+}
+.fq-hero__eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C06240;
+  margin-bottom: 14px;
+}
+.fq-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+  font-weight: 700;
+  color: #EDE4D4;
+  line-height: 1.0;
+  margin-bottom: 18px;
+}
+.fq-hero__sub {
+  font-size: 1rem;
+  color: rgba(237,228,212,0.48);
+  line-height: 1.65;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ── Filter Bar ── */
+.fq-filterbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(237,228,212,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(30,16,8,0.09);
+}
+.fq-filterbar__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.fq-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(30,16,8,0.12);
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: all 160ms ease;
+  letter-spacing: 0.02em;
+}
+.fq-chip:hover {
+  border-color: #C06240;
+  color: #C06240;
+}
+.fq-chip--active {
+  background: #C06240;
+  border-color: #C06240;
+  color: #fff;
+}
+.fq-chip__count {
+  font-size: 0.68rem;
+  opacity: 0.55;
+}
+.fq-chip--active .fq-chip__count {
+  opacity: 0.8;
+}
+.fq-filterbar__tally {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+}
+
+/* ── Main ── */
+.fq-main {
+  padding: 48px 0 88px;
+}
+.fq-main__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.fq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── FAQ Item ── */
+.fq-item {
+  border-bottom: 1px solid rgba(30,16,8,0.08);
+  position: relative;
+}
+.fq-item:first-child {
+  border-top: 1px solid rgba(30,16,8,0.08);
+}
+.fq-item__trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 44px 1fr 36px;
+  align-items: center;
+  gap: 16px;
+  padding: 26px 0;
+  text-align: left;
+}
+.fq-item__num {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(30,16,8,0.2);
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 200ms;
+}
+.fq-item--open .fq-item__num {
+  color: rgba(192,98,64,0.55);
+}
+.fq-item__q {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.2vw, 1.18rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+  transition: color 200ms;
+}
+.fq-item__trigger:hover .fq-item__q,
+.fq-item--open .fq-item__q {
+  color: #C06240;
+}
+.fq-item__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(30,16,8,0.05);
+  color: var(--ink-light);
+  flex-shrink: 0;
+  transition: background 200ms, color 200ms, transform 320ms cubic-bezier(0.4,0,0.2,1);
+  justify-self: end;
+}
+.fq-item__trigger:hover .fq-item__toggle {
+  background: rgba(192,98,64,0.08);
+  color: #C06240;
+}
+.fq-item--open .fq-item__toggle {
+  background: rgba(192,98,64,0.12);
+  color: #C06240;
+  transform: rotate(180deg);
+}
+
+/* CSS grid-template-rows animation — no JS height math needed */
+.fq-item__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fq-item--open .fq-item__body {
+  grid-template-rows: 1fr;
+}
+.fq-item__body-inner {
+  overflow: hidden;
+}
+.fq-item__a {
+  padding: 0 52px 28px 60px;
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  color: var(--ink-muted);
+}
+
+/* ── Bottom CTA ── */
+.fq-cta {
+  background: #1E1008;
+  padding: 56px 0;
+}
+.fq-cta__inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.fq-cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: #EDE4D4;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.fq-cta__sub {
+  font-size: 0.9rem;
+  color: rgba(237,228,212,0.38);
+  line-height: 1.5;
+}
+.fq-cta__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.fq-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 180ms ease;
+  white-space: nowrap;
+  text-decoration: none;
+  border: none;
+}
+.fq-btn--wa {
+  background: #25D366;
+  color: #fff;
+}
+.fq-btn--wa:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.fq-btn--ghost {
+  background: transparent;
+  color: rgba(237,228,212,0.7);
+  border: 1.5px solid rgba(237,228,212,0.18);
+}
+.fq-btn--ghost:hover {
+  border-color: rgba(237,228,212,0.45);
+  color: #EDE4D4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .fq-item__trigger {
+    grid-template-columns: 36px 1fr 32px;
+    gap: 12px;
+    padding: 20px 0;
+  }
+  .fq-item__a {
+    padding: 0 16px 24px 48px;
+  }
+  .fq-cta__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .fq-cta__actions {
+    justify-content: center;
+    width: 100%;
+  }
+  .fq-filterbar__tally { display: none; }
+}
+
 .cs-wall__btn:hover { filter: brightness(1.4); }
