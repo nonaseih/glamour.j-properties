@@ -12,7 +12,7 @@ const NAV_LINKS = [
   ['apply',        'Apply to Rent'],
 ]
 
-const LOCATIONS = ['Maitama', 'Asokoro', 'Jahi', 'Wuse 2', 'Gwarinpa', 'Garki', 'Katampe', 'Guzape', 'Lokogoma']
+const LOCATIONS = ['Maitama', 'Asokoro', 'Jahi', 'Wuse 2', 'Gwarinpa', 'Guzape', 'Lokogoma', 'Wuye', 'Mabuchi', 'Kado', 'Jabi', 'Idu', 'Lifecamp', 'Katampe Extension']
 
 const WA_SVG = (
   <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">
@@ -96,7 +96,7 @@ export default function Footer({ navigate }) {
               <em>is waiting.</em>
             </h2>
             <p className="footer-cta__sub">
-              Browse hand-picked rentals across Abuja's most desirable districts.
+              Exclusive standards all guaranteed. Since 2018.
             </p>
           </div>
           <div className="footer-cta__actions">
@@ -120,12 +120,12 @@ export default function Footer({ navigate }) {
               <HouseLogo size={22} />
               <div>
                 <div className="footer-brand__name">JAY. G™</div>
-                <div className="footer-brand__sub">Properties &amp; Rentals Co.</div>
+                <div className="footer-brand__sub">Homes &amp; Properties Co.</div>
               </div>
             </button>
             <p className="footer-brand__tagline">
               Premium residential rentals in Abuja, Nigeria.
-              Transparent, fast, and professional .. since 2012.
+              Transparent, fast and reliable. Since 2018.
             </p>
             <div className="footer-socials">
               {SOCIALS.map((s) => (
@@ -196,7 +196,7 @@ export default function Footer({ navigate }) {
         {/* ── Bottom bar ── */}
         <div className="footer-bottom">
           <p className="footer-bottom__copy">
-            © {new Date().getFullYear()} Jay. G Properties &amp; Rentals. All rights reserved.
+            © {new Date().getFullYear()} Jay Homes &amp; Properties. All rights reserved.
           </p>
           <div className="footer-bottom__links">
             <button className="footer-bottom__link" onClick={() => navigate('privacy')}>Privacy</button>

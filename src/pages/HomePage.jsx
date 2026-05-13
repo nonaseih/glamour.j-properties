@@ -12,9 +12,9 @@ const FEAT_VIDEOS = [
 
 const STATS = [
   { num: '200+', label: 'Homes Let' },
-  { num: '12+', label: 'Years Experience' },
+  { num: '8+', label: 'Years Experience' },
   { num: '98%', label: 'Client Satisfaction' },
-  { num: '4', label: 'Expert Agents' },
+  { num: '15', label: 'Expert Agents' },
 ]
 
 const VALUE_TILES = [
@@ -156,14 +156,14 @@ export default function HomePage({ navigate, page }) {
           <div className="hero-headline">
             <div className="hero-headline__eyebrow">
               <div className="hero-headline__eyebrow-dot" />
-              <span className="hero-headline__eyebrow-label">Discover Your Next Home</span>
+              <span className="hero-headline__eyebrow-label">Abuja Property Site</span>
             </div>
             <h1>
-              Find your perfect<br />
-              <em>Abuja rental</em> ..<br />
-              homes worth living in.
+              Explore the Essence of<br />
+              <em>Luxury Living</em><br />
+              FCT, Abuja.
             </h1>
-            <p className="hero-headline__sub">
+            <p className="hero-headline__sub" style={{ color: 'rgba(255,255,255,0.95)', textShadow: '0 1px 6px rgba(0,0,0,0.6)', fontWeight: 500 }}>
               Browse hand-picked rentals across Maitama, Jahi, Asokoro and beyond.
               Tour fast, apply online, move in without the hassle.
             </p>
@@ -211,7 +211,7 @@ export default function HomePage({ navigate, page }) {
                   <span className="hero-stat__dual-label">Tenants Placed</span>
                 </div>
                 <div className="hero-stat__dual-item">
-                  <span className="hero-stat__dual-num hero-stat__dual-num--sm">12+</span>
+                  <span className="hero-stat__dual-num hero-stat__dual-num--sm">8+</span>
                   <span className="hero-stat__dual-label">Years in Market</span>
                 </div>
               </div>
@@ -282,26 +282,26 @@ export default function HomePage({ navigate, page }) {
 
             <h2 className="about-h2">
               Abuja's most trusted<br />
-              <em>rental partner</em>
+              <em>property agency</em>
             </h2>
 
             <p className="about-body">
-              Since 2012, Jay. G Properties &amp; Rentals has been the go-to partner for
+              Since 2018, Jay Homes &amp; Properties has been the go-to for
               discerning tenants seeking quality homes across the Federal Capital Territory.
               No hidden fees, no pressure, no surprises.
             </p>
             <p className="about-body">
-              Our team of four expert agents has unmatched knowledge of Abuja's residential
-              districts .. from Asokoro to the family-friendly suburbs of Gwarinpa.
+              Our team of experts has unmatched knowledge of Abuja's residential
+              districts .. from Asokoro to the family-friendly suburbs of each location and axis of FCT.
             </p>
 
             <div className="about-stats-row">
               <div className="about-stat">
-                <div className="about-stat__num">12+</div>
+                <div className="about-stat__num">8+</div>
                 <div className="about-stat__label">Years Active</div>
               </div>
               <div className="about-stat">
-                <div className="about-stat__num">4</div>
+                <div className="about-stat__num">15</div>
                 <div className="about-stat__label">Expert Agents</div>
               </div>
               <div className="about-stat">
@@ -338,8 +338,7 @@ export default function HomePage({ navigate, page }) {
               <em>set us apart</em>
             </h2>
             <p className="values-body">
-              We built our agency around what Abuja renters told us mattered most ..
-              and we've never compromised on any of them.
+              We built our agency to help ease the hassle of securing your desired home in Abuja.
             </p>
             <button className="values-cta" onClick={() => navigate('faq')}>
               How it works →
@@ -376,8 +375,8 @@ export default function HomePage({ navigate, page }) {
             </div>
             <h3 className="cert-title">Officially Licensed &amp; Registered</h3>
             <p className="cert-sub">
-              Jay. G Properties &amp; Rentals is a fully registered business with the
-              Corporate Affairs Commission of Nigeria .. operating transparently since 2012.
+              Jay Homes &amp; Properties is a fully registered business with the
+              Corporate Affairs Commission of Nigeria .. operating transparently since 2018.
             </p>
           </div>
           <button className="cert-thumb-btn" onClick={() => setCertOpen(true)} aria-label="View certificate of registration">
@@ -542,7 +541,7 @@ export default function HomePage({ navigate, page }) {
                 <em>results.</em>
               </h2>
               <p className="vidband__sub">
-                Since 2012, we've helped over a thousand families settle into the right home
+                Since 2018, we've helped families settle into the right home
                 across every district of the Federal Capital Territory.
               </p>
             </div>
@@ -550,8 +549,8 @@ export default function HomePage({ navigate, page }) {
             <div className="vidband__stats">
               {[
                 { num: '200+',   label: 'Homes Let',        sub: 'across Abuja FCT' },
-                { num: '1,000+', label: 'Tenants Placed',   sub: 'since 2012'       },
-                { num: '12+',    label: 'Years Active',      sub: 'in the market'    },
+                { num: '1,000+', label: 'Tenants Placed',   sub: 'since 2018'       },
+                { num: '8+',     label: 'Years Active',      sub: 'in the market'    },
                 { num: '98%',    label: 'Satisfaction Rate', sub: 'tenant surveys'   },
               ].map((s) => (
                 <div key={s.label} className="vidband__stat">

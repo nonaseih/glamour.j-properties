@@ -24,7 +24,7 @@
       'Top-Tier Sanitary Fittings',
     ],
     description:
-      'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, and government bodies. Inspection fee: ₦15,000. Other fees communicated after inspection.',
+      'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, and government bodies. Government bodies and luxury living — for more details, communicate on WhatsApp 08133410003.',
     annualRent: 150000000,
     cautionFee: 150000000,
     agencyFee: 7500000,
@@ -437,10 +437,10 @@
       'Cinema / Entertainment Room', 'Floor-to-Ceiling Windows',
       'High-Quality Finishing', 'Ample Parking', '24/7 Power Supply',
       'Inverter + Backup Generator', 'CCTV & Access Control',
-      'Secure Managed Estate', 'Free Inspection',
+      'Secure Managed Estate',
     ],
     description:
-      'An exceptional luxury residence in the heart of Maitama .. Abuja\'s most prestigious address. Five massive en-suite bedrooms with walk-in closets, a cinema room, home gym, smart home automation, and a fully fitted kitchen with premium appliances. Floor-to-ceiling windows, 24/7 power, CCTV, and access control in a well-managed, secure estate. Built for prestige living, ultimate comfort, and outstanding investment returns. Asking ₦4.5B. Inspection is free.',
+      'An exceptional luxury residence in the heart of Maitama .. Abuja\'s most prestigious address. Five massive en-suite bedrooms with walk-in closets, a cinema room, home gym, smart home automation, and a fully fitted kitchen with premium appliances. Floor-to-ceiling windows, 24/7 power, CCTV, and access control in a well-managed, secure estate. Built for prestige living, ultimate comfort, and outstanding investment returns. Asking ₦4.5B.',
     annualRent: 4500000000,
     cautionFee: 0,
     agencyFee: 225000000,
@@ -692,7 +692,7 @@ export const faqs = [
     id: 4,
     category: 'Costs',
     q: 'What fees will I pay beyond the annual rent?',
-    a: 'Standard fees include: Caution Deposit (typically 1 year\'s rent, refundable at end of tenancy), Agency Fee (5% of annual rent), and Legal/Agreement Fee (2.5% of annual rent). All fees are clearly stated before you commit to anything.',
+    a: 'Standard fees include: Caution Deposit (typically 1 year\'s rent, refundable at end of tenancy), Agency Fee (5% of annual rent), and Legal/Agreement Fee (2.5% of annual rent). All fees are clearly stated before you commit to anything. A consultation fee of ₦10,000 applies (excludes inspection). For an exclusive physical tour of 5+ properties, an optional day rate of ₦100,000 applies — this is not an inspection fee.',
   },
   {
     id: 5,
@@ -737,7 +737,7 @@ export const values = [
     id: 1,
     icon: 'T',
     title: 'Transparency',
-    body: 'Every fee, every clause, every condition .. disclosed upfront. No surprises on move-in day.',
+    body: 'No surprises — and if there\'s any concern, it\'ll be fixed.',
   },
   {
     id: 2,
@@ -749,13 +749,13 @@ export const values = [
     id: 3,
     icon: 'S',
     title: 'Speed',
-    body: 'Qualified applications processed within 48 hours. We respect that your time has value.',
+    body: 'All applications will be scheduled for inspection within 24-48hrs.',
   },
   {
     id: 4,
     icon: 'Q',
     title: 'Quality',
-    body: 'Every property on our books is personally inspected. We only list what we\'d rent ourselves.',
+    body: 'We list only what we can deliver. Feel at home.',
   },
 ]
 

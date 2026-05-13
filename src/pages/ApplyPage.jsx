@@ -395,6 +395,26 @@ export default function ApplyPage({ navigate }) {
               </div>
             </div>
 
+            <div className="ap-sidebar-card">
+              <h4 className="ap-sidebar-card__title">Consultation &amp; Tour Fees</h4>
+              <div className="ap-docs-mini">
+                <div className="ap-docs-mini__item">
+                  <span className="ap-docs-mini__dot" />
+                  <span><strong>Consultation fee:</strong> ₦10,000 (excludes inspection fee)</span>
+                </div>
+                <div className="ap-docs-mini__item">
+                  <span className="ap-docs-mini__dot" />
+                  <span><strong>Exclusive physical tour:</strong> ₦100,000/day · Minimum 5 properties · <em>Optional, not inspection fee</em></span>
+                </div>
+              </div>
+              <div style={{ marginTop: '16px', padding: '12px', background: 'rgba(0,0,0,0.04)', borderRadius: '8px', fontSize: '0.82rem', lineHeight: 1.5 }}>
+                <div style={{ fontWeight: 600, marginBottom: '6px' }}>Payment Details</div>
+                <div>Account No: <strong>6312020162</strong></div>
+                <div>Name: <strong>Ede Janet Uzoamaka</strong></div>
+                <div>Bank: <strong>Fidelity Bank</strong></div>
+              </div>
+            </div>
+
             <div className="ap-sidebar-card ap-sidebar-card--dark">
               <h4 className="ap-sidebar-card__title">Need Help?</h4>
               <p className="ap-sidebar-card__body">
