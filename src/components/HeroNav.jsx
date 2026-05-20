@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { id: 'agents',       label: 'Agents'     },
   { id: 'testimonials', label: 'Reviews'    },
   { id: 'faq',          label: 'FAQ'        },
+  { id: 'contact',      label: 'Contact'    },
 ]
 
 const WA_SVG = (
