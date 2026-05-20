@@ -7,6 +7,7 @@ export default function PropertyCard({ property, onViewDetails }) {
   const { title, location, bedrooms, bathrooms, parking, price, priceNote, status, featured } = property
   const isRent = priceNote?.includes('/yr')
   const [faved, setFaved] = useState(false)
+  const [videoLoading, setVideoLoading] = useState(true)
   const video = PROPERTY_VIDEOS[property.id] ?? null
   const videoRef = useRef(null)
 
@@ -22,7 +23,16 @@ export default function PropertyCard({ property, onViewDetails }) {
       {/* Image / video area */}
       <div className="rl-pc__img">
         {video
-          ? <video ref={videoRef} src={video} className="rl-pc__video" autoPlay muted loop playsInline preload="metadata" />
+          ? <>
+              <video
+                ref={videoRef}
+                src={video}
+                className="rl-pc__video"
+                autoPlay muted loop playsInline preload="metadata"
+                onCanPlay={() => setVideoLoading(false)}
+              />
+              {videoLoading && <div className="video-spinner video-spinner--card" />}
+            </>
           : <Home size={48} strokeWidth={0.8} className="rl-pc__placeholder-icon" />
         }
         <span className={`rl-pc__badge rl-pc__badge--listing-type rl-pc__badge--${isRent ? 'rent' : 'sale'}`} style={{ zIndex: 2, position: 'relative' }}>

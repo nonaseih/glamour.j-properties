@@ -2,6 +2,34 @@
 
 a, button { -webkit-tap-highlight-color: transparent; outline: none; }
 
+@keyframes video-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.video-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.15);
+  border-top-color: rgba(255, 255, 255, 0.85);
+  animation: video-spin 0.75s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.video-spinner--card {
+  width: 32px;
+  height: 32px;
+}
+
+.video-spinner--hero {
+  width: 48px;
+  height: 48px;
+  border-width: 3px;
+}
+
 :root {
   --ink: #1a1a1a;
   --ink-muted: #5a5a5a;

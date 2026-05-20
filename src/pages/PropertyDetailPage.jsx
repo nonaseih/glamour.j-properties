@@ -41,6 +41,7 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
   const [muted,         setMuted]         = useState(true)
   const [navVisible,    setNavVisible]    = useState(false)
   const [activeSection, setActiveSection] = useState('overview')
+  const [videoLoading,  setVideoLoading]  = useState(true)
 
   useEffect(() => {
     videoRef.current?.play().catch(() => {})
@@ -134,7 +135,16 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
       {/* ── Hero ── */}
       <div className="pd__hero">
         {video
-          ? <video ref={videoRef} src={video} className="pd__hero-video" autoPlay muted loop playsInline />
+          ? <>
+              <video
+                ref={videoRef}
+                src={video}
+                className="pd__hero-video"
+                autoPlay muted loop playsInline
+                onCanPlay={() => setVideoLoading(false)}
+              />
+              {videoLoading && <div className="video-spinner video-spinner--hero" />}
+            </>
           : <div className="pd__hero-fallback" />
         }
         <div className="pd__hero-overlay" />
@@ -312,11 +322,11 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
                   </div>
                 </div>
                 <div className="pd__agent-contacts">
-                  <a href={`tel:${agent.phone}`} className="pd__agent-contact">
-                    <Phone size={13} strokeWidth={1.5} />{agent.phone}
+                  <a href="tel:08133410003" className="pd__agent-contact">
+                    <Phone size={13} strokeWidth={1.5} />08133410003
                   </a>
-                  <a href={`mailto:${agent.email}`} className="pd__agent-contact">
-                    <Mail size={13} strokeWidth={1.5} />{agent.email}
+                  <a href="mailto:edejanet506@gmail.com" className="pd__agent-contact">
+                    <Mail size={13} strokeWidth={1.5} />edejanet506@gmail.com
                   </a>
                 </div>
               </div>
