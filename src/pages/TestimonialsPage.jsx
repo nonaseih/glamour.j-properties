@@ -356,7 +356,7 @@ export default function TestimonialsPage({ navigate }) {
           <HeroNav navigate={navigate} page="testimonials" />
           <div className="rv-hero__content">
             <p className="rv-hero__eyebrow">Client Stories</p>
-            <h1 className="rv-hero__title">What Our<br /><em>Tenants Say</em></h1>
+            <h1 className="rv-hero__title">Tenants<br /><em>Review</em></h1>
             <p className="rv-hero__sub">Hundreds of families have found their home through Jay G Properties.</p>
           </div>
         </div>

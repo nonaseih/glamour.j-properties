@@ -92,8 +92,8 @@ export default function Footer({ navigate }) {
         <div className="footer-cta">
           <div className="footer-cta__text">
             <h2 className="footer-cta__h2">
-              Your perfect home<br />
-              <em>is waiting.</em>
+              Your ideal home<br />
+              <em>awaits.</em>
             </h2>
             <p className="footer-cta__sub">
               Exclusive standards all guaranteed. Since 2018.

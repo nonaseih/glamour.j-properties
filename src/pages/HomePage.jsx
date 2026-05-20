@@ -159,8 +159,7 @@ export default function HomePage({ navigate, page }) {
               <span className="hero-headline__eyebrow-label">Abuja Property Site</span>
             </div>
             <h1>
-              Explore the Essence of<br />
-              <em>Luxury Living</em><br />
+              Explore luxury living<br />
               FCT, Abuja.
             </h1>
             <p className="hero-headline__sub" style={{ color: 'rgba(255,255,255,0.95)', textShadow: '0 1px 6px rgba(0,0,0,0.6)', fontWeight: 500 }}>

@@ -27,8 +27,8 @@
       'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, and government bodies. Government bodies and luxury living — for more details, communicate on WhatsApp 08133410003.',
     annualRent: 150000000,
     cautionFee: 150000000,
-    agencyFee: 7500000,
-    legalFee: 3750000,
+    agencyFee: 15000000,
+    legalFee: 15000000,
     agent: 1,
   },
   {
@@ -55,8 +55,8 @@
       'A well-finished 3-bedroom flat with a room BQ on the second floor of ENL FHA Estate, Guzape. Annual rent ₦10M. Caution fee ₦500K. Agency & legal fees 20% combined. Service charge ₦220K per annum.',
     annualRent: 10000000,
     cautionFee: 500000,
-    agencyFee: 1500000,
-    legalFee: 500000,
+    agencyFee: 1000000,
+    legalFee: 1000000,
     agent: 3,
   },
   {
@@ -112,8 +112,8 @@
       'A standalone luxury mansion in the prestigious Guzape District .. designed for comfort, class, and exclusivity. Features a private swimming pool, a beautiful garden, a 2-bedroom guest chalet, and generous compound space in a secure, serene environment. Serious enquiries only .. inspection available by appointment.',
     annualRent: 30000000,
     cautionFee: 30000000,
-    agencyFee: 1500000,
-    legalFee: 750000,
+    agencyFee: 3000000,
+    legalFee: 3000000,
     agent: 1,
   },
   {
@@ -144,8 +144,8 @@
       'A newly built modernized masterpiece in Lokogoma .. five massive bedrooms, a penthouse, cinema room, gazebo, and a fully fitted kitchen with pantry. Comes fully furnished and move-in ready, with solar inverters, CCTV, a spacious office, walk-in closet, and boys quarters. Contemporary architecture at its finest.',
     annualRent: 470000000,
     cautionFee: 0,
-    agencyFee: 23500000,
-    legalFee: 11750000,
+    agencyFee: 47000000,
+    legalFee: 47000000,
     agent: 2,
   },
   {
@@ -174,8 +174,8 @@
       'A newly built fully finished 5-bedroom terrace duplex with a 2-room BQ in the prestigious Asokoro district. Features all en-suite bedrooms, two living rooms, a family lounge, anteroom, balcony, and backyard. 24/7 security and facility management on site. Priced at ₦650M. 5% broker fee applies.',
     annualRent: 650000000,
     cautionFee: 0,
-    agencyFee: 32500000,
-    legalFee: 16250000,
+    agencyFee: 65000000,
+    legalFee: 65000000,
     agent: 1,
   },
   {
@@ -205,8 +205,8 @@
       'A newly built contemporary 5-bedroom fully detached duplex in the prestigious NAF Valley Estate, Asokoro. Fully finished to the highest standard .. marble floors, walk-in closets in every bedroom, chandeliers, fitted kitchen, and two living areas. Priced at ₦1.6B. 5% professional fee applies.',
     annualRent: 1600000000,
     cautionFee: 0,
-    agencyFee: 80000000,
-    legalFee: 40000000,
+    agencyFee: 160000000,
+    legalFee: 160000000,
     agent: 1,
   },
   {
@@ -236,8 +236,8 @@
       'A newly built contemporary 5-bedroom fully detached duplex in the prestigious NAF Valley Estate, Asokoro. Fully finished to the highest standard .. marble floors, walk-in closets in every bedroom, chandeliers, fitted kitchen, and two living areas. Priced at ₦1.6B. 5% professional fee applies.',
     annualRent: 1600000000,
     cautionFee: 0,
-    agencyFee: 80000000,
-    legalFee: 40000000,
+    agencyFee: 160000000,
+    legalFee: 160000000,
     agent: 1,
   },
   {
@@ -264,8 +264,8 @@
       'A distress sale opportunity in Guzape .. a 5-bedroom fully detached duplex with a room BQ in a secure mini estate. Reduced to ₦750M for a quick sale. 5% professional fee applies. Serious buyers only.',
     annualRent: 750000000,
     cautionFee: 0,
-    agencyFee: 37500000,
-    legalFee: 18750000,
+    agencyFee: 75000000,
+    legalFee: 75000000,
     agent: 2,
   },
   {
@@ -292,8 +292,8 @@
       'A beautifully furnished 4-bedroom terrace duplex with a 1-room BQ in Katampe Extension. Reduced from ₦550M to ₦500M .. a rare deal at exceptional value. 5% professional fee applies.',
     annualRent: 500000000,
     cautionFee: 0,
-    agencyFee: 25000000,
-    legalFee: 12500000,
+    agencyFee: 50000000,
+    legalFee: 50000000,
     agent: 1,
   },
   {
@@ -321,8 +321,8 @@
       'Luxury meets comfort in this well-designed 5-bedroom terrace duplex with BQ in Katampe Extension. All bedrooms en-suite, two living rooms, a private office, ante room, and balconies throughout. Privately gated in a serene, secure environment. Perfect for upscale living or smart investment. Priced at ₦750M.',
     annualRent: 750000000,
     cautionFee: 0,
-    agencyFee: 37500000,
-    legalFee: 18750000,
+    agencyFee: 75000000,
+    legalFee: 75000000,
     agent: 1,
   },
   {
@@ -350,8 +350,8 @@
       'A newly built, spacious and tastefully finished 4-bedroom terrace duplex with a private compound and 1-room BQ in Guzape. All bedrooms are en-suite, with two living rooms, a fully fitted kitchen, balcony, and generous parking in a very secure environment. Asking ₦450M .. open to offers around ₦440M. 5% professional fee applies.',
     annualRent: 450000000,
     cautionFee: 0,
-    agencyFee: 22500000,
-    legalFee: 11250000,
+    agencyFee: 45000000,
+    legalFee: 45000000,
     agent: 2,
   },
   {
@@ -378,8 +378,8 @@
       'A well-finished 4-bedroom terrace duplex with BQ on a tarred access road in Guzape. Features a family lounge, fully fitted kitchen with pantry, and a serene, secure environment. Priced at ₦370M. 5% broker\'s fee applies.',
     annualRent: 370000000,
     cautionFee: 0,
-    agencyFee: 18500000,
-    legalFee: 9250000,
+    agencyFee: 37000000,
+    legalFee: 37000000,
     agent: 2,
   },
   {
@@ -410,8 +410,8 @@
       'A luxurious and spacious 3-bedroom smart home with maiden\'s room at Lifecamp Junction .. all roads tarred to the door. Loaded with tech: smart home system, fiber optic internet, plug-and-play CCTV and DStv, inbuilt speakers, and central solar. All rooms en-suite, fitted kitchen with store, car port, and a massive compound. Ideal for upscale residential living or high-end Airbnb. Asking ₦250M.',
     annualRent: 250000000,
     cautionFee: 0,
-    agencyFee: 12500000,
-    legalFee: 6250000,
+    agencyFee: 25000000,
+    legalFee: 25000000,
     agent: 3,
   },
   {
@@ -443,8 +443,8 @@
       'An exceptional luxury residence in the heart of Maitama .. Abuja\'s most prestigious address. Five massive en-suite bedrooms with walk-in closets, a cinema room, home gym, smart home automation, and a fully fitted kitchen with premium appliances. Floor-to-ceiling windows, 24/7 power, CCTV, and access control in a well-managed, secure estate. Built for prestige living, ultimate comfort, and outstanding investment returns. Asking ₦4.5B.',
     annualRent: 4500000000,
     cautionFee: 0,
-    agencyFee: 225000000,
-    legalFee: 112500000,
+    agencyFee: 450000000,
+    legalFee: 450000000,
     agent: 1,
   },
   {
@@ -490,9 +490,9 @@ export const agents = [
     listings: 48,
     closed: 120,
     rating: 4.9,
-    phone: '+234 802 000 0001',
-    whatsapp: '2348020000001',
-    email: 'jay@jaygproperties.com',
+    phone: '08115282917',
+    whatsapp: '2348115282917',
+    email: 'Jayjannel@gmail.com',
     initials: 'JO',
   },
   {
@@ -674,13 +674,13 @@ export const faqs = [
     id: 1,
     category: 'Process',
     q: 'How does the rental process work?',
-    a: 'Our process has four steps: Search (browse our listings or describe your needs to an agent), View (schedule physical or virtual viewings of shortlisted properties), Apply (submit your rental application with required documents), and Move In (sign tenancy agreement, pay fees, and collect keys). We guide you through every step.',
+    a: 'Our process has four steps: Search (browse our listings or describe your needs to an agent), View (schedule physical or virtual viewings of shortlisted properties), Apply (submit your rental application with required documents), and Move In (sign tenancy agreement and collect keys). We guide you through every step.',
   },
   {
     id: 2,
     category: 'Process',
     q: 'How long does it take to rent a property?',
-    a: 'For qualified applicants with all documents ready, the process typically takes 5..10 working days from application to key handover. The majority of this time is document verification by the landlord.',
+    a: 'For qualified applicants with all documents ready, the process typically takes 24-72hrs (1-3 days) from application to key handover. The majority of this time is document verification by the landlord.',
   },
   {
     id: 3,
@@ -692,25 +692,25 @@ export const faqs = [
     id: 4,
     category: 'Costs',
     q: 'What fees will I pay beyond the annual rent?',
-    a: 'Standard fees include: Caution Deposit (typically 1 year\'s rent, refundable at end of tenancy), Agency Fee (5% of annual rent), and Legal/Agreement Fee (2.5% of annual rent). All fees are clearly stated before you commit to anything. A consultation fee of ₦10,000 applies (excludes inspection). For an exclusive physical tour of 5+ properties, an optional day rate of ₦100,000 applies — this is not an inspection fee.',
+    a: 'Standard fees include: Caution Deposit (refundable at end of tenancy if there are no damages or outstanding service charges), Agency Fee (10% of annual rent), and Legal/Agreement Fee (10% of annual rent). All fees are clearly stated before you commit to anything. For an exclusive physical tour of 5+ properties, a charge of ₦100,000 applies. Optional general inspection fee also applies.',
   },
   {
     id: 5,
     category: 'Costs',
     q: 'Is the caution deposit refundable?',
-    a: 'Yes. The caution deposit is fully refundable at the end of your tenancy, less any deductions for unpaid rent or property damage beyond fair wear and tear. We document the property\'s condition at move-in and move-out to ensure fairness.',
+    a: 'Yes. The caution deposit is refundable at the end of your tenancy, provided there are no damages or outstanding service charges. We document the property\'s condition at move-in and move-out to ensure fairness.',
   },
   {
     id: 6,
     category: 'Costs',
     q: 'Can I pay rent in instalments?',
-    a: 'Payment terms are set by individual landlords. Some accept 6-monthly or quarterly payments. Let us know your preferred payment schedule and we will try to match you with landlords who accommodate it.',
+    a: 'Payment terms are set by individual landlords. Some accept 6-monthly or quarterly payments. Let us know your preferred payment schedule and we will try to match you with landlords who accommodate it. Please note: annual payments are the standard — instalment arrangements are rarely accepted by most landlords.',
   },
   {
     id: 7,
     category: 'Requirements',
     q: 'What documents do I need to apply?',
-    a: 'You will need: a valid government-issued ID (National ID, International Passport, or Driver\'s Licence), proof of income or employment (recent payslips, bank statements, or a letter of employment), and two references (employer or personal). Self-employed applicants should provide 6 months of bank statements.',
+    a: 'You will need: a valid government-issued ID (National ID, International Passport, or Driver\'s Licence), proof of income or employment (recent payslips, bank statements, or a letter of employment), verifiable work addresses for both the prospect tenant and guarantors, and two references (employer or personal). Self-employed applicants should provide 6 months of bank statements.',
   },
   {
     id: 8,
@@ -760,6 +760,7 @@ export const values = [
 ]
 
 export const formatPrice = (n) => {
+  if (n >= 1_000_000_000) return `₦${(n / 1_000_000_000).toFixed(1)}B`
   if (n >= 1_000_000) return `₦${(n / 1_000_000).toFixed(1)}M`
   if (n >= 1_000) return `₦${(n / 1_000).toFixed(0)}K`
   return `₦${n.toLocaleString()}`

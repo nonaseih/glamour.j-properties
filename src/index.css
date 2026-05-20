@@ -4321,6 +4321,24 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   left: 10px;
 }
 
+.rl-pc__badge--listing-type {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.rl-pc__badge--rent {
+  background: rgba(52,211,153,0.18);
+  border: 1px solid rgba(52,211,153,0.35);
+  color: #6ee7b7;
+}
+
+.rl-pc__badge--sale {
+  background: rgba(199,126,89,0.2);
+  border: 1px solid rgba(199,126,89,0.35);
+  color: #e8a87c;
+}
+
 /* Heart fav button (on dark area — keep light) */
 .rl-pc__fav {
   width: 30px;

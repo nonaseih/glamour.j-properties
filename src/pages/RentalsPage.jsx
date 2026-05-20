@@ -230,8 +230,8 @@ function PropertyModal({ property, onClose, navigate }) {
               {[
                 [isSale ? 'Sale Price' : 'Annual Rent', annualRent],
                 ['Caution Deposit (refundable)', cautionFee],
-                ['Agency Fee (5%)', agencyFee],
-                ['Legal / Agreement Fee (2.5%)', legalFee],
+                ['Agency Fee (10%)', agencyFee],
+                ['Legal / Agreement Fee (10%)', legalFee],
               ].map(([label, val]) => (
                 <div key={label} className="rl-modal__cost-row">
                   <span>{label}</span>

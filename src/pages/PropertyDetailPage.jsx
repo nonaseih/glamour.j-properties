@@ -104,8 +104,8 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
   const fees = [
     [isSale ? 'Sale Price' : 'Annual Rent', property.annualRent],
     ['Caution Deposit',                     property.cautionFee],
-    ['Agency Fee (5%)',                     property.agencyFee],
-    ['Legal Fee (2.5%)',                    property.legalFee],
+    ['Agency Fee (10%)',                    property.agencyFee],
+    ['Legal Fee (10%)',                     property.legalFee],
   ]
   const total = fees.reduce((s, [, v]) => s + (v || 0), 0)
 
