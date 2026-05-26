@@ -2975,6 +2975,10 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   letter-spacing: 0.04em;
   color: rgba(237,228,212,0.22);
 }
+.pd__fee-note--terms {
+  color: rgba(237,228,212,0.55);
+  margin-bottom: 0.25rem;
+}
 
 /* Sidebar */
 .pd__sidebar {

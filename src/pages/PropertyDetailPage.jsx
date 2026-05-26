@@ -107,7 +107,7 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
     ['Caution Deposit',                     property.cautionFee],
     ['Agency Fee (10%)',                    property.agencyFee],
     ['Legal Fee (10%)',                     property.legalFee],
-  ]
+  ].filter(([, v]) => v > 0)
   const total = fees.reduce((s, [, v]) => s + (v || 0), 0)
 
   return (
@@ -256,6 +256,9 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
                     <span>{formatPrice(total)}</span>
                   </div>
                 </div>
+                {property.paymentTerms && (
+                  <p className="pd__fee-note pd__fee-note--terms">{property.paymentTerms}</p>
+                )}
                 <p className="pd__fee-note">All fees due at signing · Prices in Nigerian Naira (₦)</p>
               </div>
             </div>
