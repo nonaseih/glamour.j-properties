@@ -416,7 +416,7 @@ export default function RentalsPage({ navigate }) {
             Abuja's best districts.
           </h1>
           <p className="rl-hero__sub">
-            From furnished apartments to luxury villas .. every listing personally vetted.
+            From furnished apartments to luxury villas .. every listing personally vetted. Every listing is definitely worth your time.
           </p>
         </div>
 
