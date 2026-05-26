@@ -121,6 +121,7 @@ function PropertyModal({ property, onClose, navigate }) {
     title, location, bedrooms, bathrooms, toilets, parking, sqm,
     price, priceNote, status, description, amenities,
     annualRent, cautionFee, agencyFee, legalFee,
+    paymentTerms, feesNote,
   } = property
 
   const isSale = priceNote?.includes('asking')
@@ -227,22 +228,38 @@ function PropertyModal({ property, onClose, navigate }) {
           <div className="rl-modal__section">
             <div className="rl-modal__eyebrow">Cost Breakdown</div>
             <div className="rl-modal__costs">
-              {[
-                [isSale ? 'Sale Price' : 'Annual Rent', annualRent],
-                ['Caution Deposit (refundable)', cautionFee],
-                ['Agency Fee (10%)', agencyFee],
-                ['Legal / Agreement Fee (10%)', legalFee],
-              ].map(([label, val]) => (
-                <div key={label} className="rl-modal__cost-row">
-                  <span>{label}</span>
-                  <span>{formatPrice(val)}</span>
-                </div>
-              ))}
-              <div className="rl-modal__cost-row rl-modal__cost-total">
-                <span>Total Due on Move-In</span>
-                <span>{formatPrice((annualRent || 0) + (cautionFee || 0) + (agencyFee || 0) + (legalFee || 0))}</span>
-              </div>
+              {(() => {
+                const rows = [
+                  [isSale ? 'Sale Price' : 'Annual Rent', annualRent],
+                  ['Caution Deposit (refundable)', cautionFee],
+                  ['Agency Fee (10%)', agencyFee],
+                  ['Legal / Agreement Fee (10%)', legalFee],
+                ].filter(([, v]) => v > 0)
+                const total = rows.reduce((s, [, v]) => s + v, 0)
+                return (
+                  <>
+                    {rows.map(([label, val]) => (
+                      <div key={label} className="rl-modal__cost-row">
+                        <span>{label}</span>
+                        <span>{formatPrice(val)}</span>
+                      </div>
+                    ))}
+                    {rows.length > 1 && (
+                      <div className="rl-modal__cost-row rl-modal__cost-total">
+                        <span>Total Due on Move-In</span>
+                        <span>{formatPrice(total)}</span>
+                      </div>
+                    )}
+                  </>
+                )
+              })()}
             </div>
+            {paymentTerms && (
+              <p className="rl-modal__cost-note">{paymentTerms}</p>
+            )}
+            {feesNote && (
+              <p className="rl-modal__cost-note">{feesNote}</p>
+            )}
           </div>
 
           {/* Actions */}
