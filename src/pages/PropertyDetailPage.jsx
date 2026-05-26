@@ -251,15 +251,20 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
                       <span>{formatPrice(val)}</span>
                     </div>
                   ))}
-                  <div className="pd__fee-row pd__fee-row--total">
-                    <span>Total Move-in Cost</span>
-                    <span>{formatPrice(total)}</span>
-                  </div>
+                  {fees.length > 1 && (
+                    <div className="pd__fee-row pd__fee-row--total">
+                      <span>Total Move-in Cost</span>
+                      <span>{formatPrice(total)}</span>
+                    </div>
+                  )}
                 </div>
                 {property.paymentTerms && (
                   <p className="pd__fee-note pd__fee-note--terms">{property.paymentTerms}</p>
                 )}
-                <p className="pd__fee-note">All fees due at signing · Prices in Nigerian Naira (₦)</p>
+                {property.feesNote
+                  ? <p className="pd__fee-note pd__fee-note--terms">{property.feesNote}</p>
+                  : <p className="pd__fee-note">All fees due at signing · Prices in Nigerian Naira (₦)</p>
+                }
               </div>
             </div>
 

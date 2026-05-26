@@ -27,9 +27,10 @@
       'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, and government bodies. Government bodies and luxury living — for more details, communicate on WhatsApp 08133410003.',
     annualRent: 150000000,
     cautionFee: 0,
-    agencyFee: 15000000,
-    legalFee: 15000000,
+    agencyFee: 0,
+    legalFee: 0,
     paymentTerms: 'Strictly 2 years payment required',
+    feesNote: 'All further fees will be discussed after inspection',
     agent: 1,
   },
   {
