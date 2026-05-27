@@ -14,11 +14,22 @@ import FAQPage from './pages/FAQPage'
 import PropertyDetailPage from './pages/PropertyDetailPage'
 import LegalPage from './pages/LegalPage'
 
+function parsePath() {
+  const path = window.location.pathname
+  const propMatch = path.match(/^\/property\/(\d+)$/)
+  if (propMatch) return { page: 'property', propertyId: parseInt(propMatch[1]) }
+  const slug = path.replace(/^\//, '')
+  const known = ['rentals', 'agents', 'contact', 'apply', 'testimonials', 'faq', 'privacy', 'terms', 'cookies']
+  if (known.includes(slug)) return { page: slug, propertyId: null }
+  return { page: 'home', propertyId: null }
+}
+
 export default function App() {
-  const [page, setPage] = useState('home')
-  const [propertyId, setPropertyId] = useState(null)
+  const initial = parsePath()
+  const [page, setPage] = useState(initial.page)
+  const [propertyId, setPropertyId] = useState(initial.propertyId)
   const [fromPage, setFromPage] = useState('home')
-  const [rentalsReady, setRentalsReady] = useState(false)
+  const [rentalsReady, setRentalsReady] = useState(() => initial.page === 'rentals')
   const [appLoading, setAppLoading] = useState(() => !sessionStorage.getItem('siteLoaded'))
 
   useEffect(() => {
@@ -34,11 +45,25 @@ export default function App() {
     })
   }, [])
 
+  useEffect(() => {
+    const onPop = () => {
+      const { page: p, propertyId: id } = parsePath()
+      setPage(p)
+      if (id !== null) setPropertyId(id)
+      if (p === 'rentals') setRentalsReady(true)
+      window.scrollTo({ top: 0 })
+    }
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
+
   const navigate = (to, id) => {
     setFromPage(page)
     setPage(to)
     if (id !== undefined) setPropertyId(id)
     if (to === 'rentals' && !rentalsReady) setRentalsReady(true)
+    const path = to === 'home' ? '/' : to === 'property' ? `/property/${id}` : `/${to}`
+    window.history.pushState({ page: to, propertyId: id ?? null }, '', path)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 

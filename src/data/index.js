@@ -706,13 +706,13 @@ export const faqs = [
     id: 6,
     category: 'Costs',
     q: 'Can I pay rent in instalments?',
-    a: 'Payment terms are set by individual landlords. Some accept 6-monthly or quarterly payments. Let us know your preferred payment schedule and we will try to match you with landlords who accommodate it. Please note: annual payments are the standard — instalment arrangements are rarely accepted by most landlords.',
+    a: 'Payment terms are set by individual landlords. But rarely acceptable to most landlords, the standard payment method is annual payments.',
   },
   {
     id: 7,
     category: 'Requirements',
     q: 'What documents do I need to apply?',
-    a: 'You will need: a valid government-issued ID (National ID, International Passport, or Driver\'s Licence), proof of income or employment (recent payslips, bank statements, or a letter of employment), verifiable work addresses for both the prospect tenant and guarantors, and two references (employer or personal). Self-employed applicants should provide 6 months of bank statements.',
+    a: 'You will need: a valid government-issued ID (National ID, International Passport, or Driver\'s Licence), proof of income or employment (recent payslips, bank statements, or a letter of employment), verifiable work addresses for both the prospect tenant and guarantors, and two references (employer or personal). Self-employed applicants should provide 6 months of bank statements. and verifiable work addresses for both the prospect tenant & guarantors.',
   },
   {
     id: 8,

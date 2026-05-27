@@ -351,7 +351,7 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
                 Ready to make<br /><em>this yours?</em>
               </h3>
               <p className="pd__bottom-cta__sub">
-                Apply online in minutes. Our agents handle everything from inspection to key handover.
+                Apply online in minutes, our verified agents are ACTIVE to proceed with the inspection.
               </p>
             </div>
             <div className="pd__bottom-cta__actions">
