@@ -24,7 +24,7 @@
       'Top-Tier Sanitary Fittings',
     ],
     description:
-      'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, and government bodies. Government bodies and luxury living — for more details, communicate on WhatsApp 08133410003.',
+      'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, government bodies and luxury living.. for more details, communicate on WhatsApp 08115282917.',
     annualRent: 150000000,
     cautionFee: 0,
     agencyFee: 0,
@@ -706,7 +706,7 @@ export const faqs = [
     id: 6,
     category: 'Costs',
     q: 'Can I pay rent in instalments?',
-    a: 'Payment terms are set by individual landlords. But rarely acceptable to most landlords, the standard payment method is annual payments.',
+    a: 'Payment terms are set by individual landlords. Some accept 6-monthly or quarterly payments. But rarely acceptable to most landlords, the standard payment method is annual payments.',
   },
   {
     id: 7,
