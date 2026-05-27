@@ -176,13 +176,13 @@ export default function Footer({ navigate }) {
                 <MapPin size={13} strokeWidth={1.5} />
                 <span>Plot 4B, Wuse Zone 6, Abuja, FCT</span>
               </div>
-              <a className="footer-contact footer-contact--link" href="tel:08115282917">
+              <a className="footer-contact footer-contact--link" href="tel:+2348133410003">
                 <Phone size={13} strokeWidth={1.5} />
-                <span>08115282917</span>
+                <span>0813 341 0003</span>
               </a>
-              <a className="footer-contact footer-contact--link" href="mailto:Jayjannel@gmail.com">
+              <a className="footer-contact footer-contact--link" href="mailto:edejanet506@gmail.com">
                 <Mail size={13} strokeWidth={1.5} />
-                <span>Jayjannel@gmail.com</span>
+                <span>edejanet506@gmail.com</span>
               </a>
               <div className="footer-contact">
                 <Clock size={13} strokeWidth={1.5} />
