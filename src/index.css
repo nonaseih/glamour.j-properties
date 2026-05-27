@@ -2274,10 +2274,10 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   -webkit-backdrop-filter: blur(10px);
   color: #000;
 }
-.values-tile--white .values-tile__num { color: rgba(0,0,0,0.4); }
-.values-tile--white .values-tile__icon { color: rgba(0,0,0,0.75); }
+.values-tile--white .values-tile__num { color: #000; }
+.values-tile--white .values-tile__icon { color: #000; }
 .values-tile--white .values-tile__title { text-shadow: none; }
-.values-tile--white .values-tile__body { color: rgba(0,0,0,0.65); text-shadow: none; }
+.values-tile--white .values-tile__body { color: #000; text-shadow: none; }
 
 /* 03 Speed — clear glass, image shows most vividly */
 .values-tile--yellow {
@@ -2286,10 +2286,10 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   -webkit-backdrop-filter: blur(5px);
   color: #000;
 }
-.values-tile--yellow .values-tile__num { color: rgba(0,0,0,0.35); }
-.values-tile--yellow .values-tile__icon { color: rgba(0,0,0,0.7); }
+.values-tile--yellow .values-tile__num { color: #000; }
+.values-tile--yellow .values-tile__icon { color: #000; }
 .values-tile--yellow .values-tile__title { text-shadow: none; }
-.values-tile--yellow .values-tile__body { color: rgba(0,0,0,0.6); text-shadow: none; }
+.values-tile--yellow .values-tile__body { color: #000; text-shadow: none; }
 
 /* 04 Quality — deepest walnut, closes the grid */
 .values-tile--dark {

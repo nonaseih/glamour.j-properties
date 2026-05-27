@@ -333,7 +333,7 @@ export default function HomePage({ navigate, page }) {
               <span>Our Principles</span>
             </div>
             <h2 className="values-h2">
-              Four things that<br />
+              Key factor that<br />
               <em>set us apart</em>
             </h2>
             <p className="values-body">
