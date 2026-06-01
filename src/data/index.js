@@ -694,7 +694,7 @@ export const faqs = [
     id: 4,
     category: 'Costs',
     q: 'What fees will I pay beyond the annual rent?',
-    a: 'Standard fees include: Caution Deposit (refundable at end of tenancy if there are no damages or outstanding service charges), Agency Fee (10% of annual rent), and Legal/Agreement Fee (10% of annual rent). All fees are clearly stated before you commit to anything. For an exclusive physical tour of 5+ properties, a charge of ₦100,000 applies. Optional general inspection fee also applies.',
+    a: 'Standard fees include: Caution Deposit (refundable at end of tenancy if there are no damages or outstanding service charges), Agency Fee (10% of annual rent), and Legal/Agreement Fee (10% of annual rent). All fees are clearly stated before you commit to anything. For an exclusive physical tour of 5+ properties, a charge of ₦100,000 applies. Optional and please general fee applies.',
   },
   {
     id: 5,
@@ -724,7 +724,7 @@ export const faqs = [
     id: 9,
     category: 'Tenancy',
     q: 'What happens if I need to leave before my tenancy ends?',
-    a: 'You should notify us and your landlord in writing, ideally with at least 3 months\' notice. Early termination clauses are outlined in your tenancy agreement. In most cases, you may be asked to find a replacement tenant or forfeit a portion of your deposit.',
+    a: 'You should notify us and your landlord in writing, ideally with at least 3 months\' notice. Early termination clauses are outlined in your tenancy agreement. We\'ll get you a replacement but agency and legal fee won\'t be refunded',
   },
   {
     id: 10,
