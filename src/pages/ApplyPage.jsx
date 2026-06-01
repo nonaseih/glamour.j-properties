@@ -372,8 +372,9 @@ export default function ApplyPage({ navigate }) {
                   'We review your application (1..2 days)',
                   'Agent contacts you to discuss shortlist',
                   'Viewings arranged at your convenience',
-                  'Offer made & tenancy agreement signed',
-                  'Fees paid & keys collected',
+                  'If you meet all criteria\'s, offer letter will be sent with account details',
+                  'Fees paid and tenancy agreement will be prepared',
+                  'Keys can be collected',
                 ].map((text, i) => (
                   <div key={i} className="ap-next-step">
                     <div className="ap-next-step__num">{i + 1}</div>
