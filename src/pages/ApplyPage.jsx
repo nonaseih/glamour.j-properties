@@ -373,7 +373,7 @@ export default function ApplyPage({ navigate }) {
                   'Agent contacts you to discuss shortlist',
                   'Viewings arranged at your convenience',
                   'If you meet all criteria\'s, offer letter will be sent with account details',
-                  'Fees paid and tenancy agreement will be prepared',
+                  'Fees completed, tenancy agreement will be prepared.',
                   'Keys can be collected',
                 ].map((text, i) => (
                   <div key={i} className="ap-next-step">

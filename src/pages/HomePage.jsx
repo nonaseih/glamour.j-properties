@@ -261,16 +261,6 @@ export default function HomePage({ navigate, page }) {
             <div className="about-visual__img">
               <img src={gCompanyImg} alt="Glamour J Properties" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
             </div>
-            <div className="about-chips">
-              <div className="about-chip">
-                <div className="about-chip__num">200+</div>
-                <div className="about-chip__label">Homes Let</div>
-              </div>
-              <div className="about-chip about-chip--peach">
-                <div className="about-chip__num">98%</div>
-                <div className="about-chip__label">Client Satisfaction</div>
-              </div>
-            </div>
           </div>
 
           {/* Content */}

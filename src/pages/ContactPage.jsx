@@ -38,7 +38,7 @@ const SOCIALS = [
   { label: 'TikTok',                       handle: '@property_elite',      color: '#010101', bg: 'rgba(0,0,0,0.07)',       svg: TT_SVG, href: 'https://www.tiktok.com/@property_elite?_r=1&_t=ZS-95oBOwMlS68' },
 ]
 
-const TOPICS = ['General Enquiry', 'Book a Viewing', 'Property Not Listed', 'Tenancy Issue', 'Other']
+const TOPICS = ['Book a Viewing', 'Property Not Listed', 'Tenancy Issue', 'Other']
 
 const HOURS = [
   { day: 'Monday .. Friday', time: '8:00am .. 6:00pm' },
@@ -72,7 +72,7 @@ export default function ContactPage({ navigate }) {
             <p className="ct-hero__eyebrow">Get in Touch</p>
             <h1 className="ct-hero__title">We'd Love to<br /><em>Hear From You</em></h1>
             <p className="ct-hero__sub">
-              Reach us on any channel .. we respond within a few hours on business days.
+              Reach us on any channel we're active on business days, Saturdays inclusive.
             </p>
           </div>
         </div>
