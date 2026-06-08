@@ -88,7 +88,7 @@ export default function ContactPage({ navigate }) {
             <p className="ct-info__eyebrow">Connect With Us</p>
             <h2 className="ct-info__title">Choose your channel</h2>
             <p className="ct-info__sub">
-              Whether you want to book a viewing, ask about a listing, or find out more about our
+              Book a viewing, ask about a listing, or find out more about our
               process .. we're here to help.
             </p>
 
