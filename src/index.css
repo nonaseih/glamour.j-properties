@@ -1880,7 +1880,7 @@ button.hero-stat__tag:hover { opacity: 0.82; }
 .about-visual {
   position: relative;
   background: #1E1008;
-  min-height: 400px;
+  min-height: 520px;
 }
 
 .about-visual__img {

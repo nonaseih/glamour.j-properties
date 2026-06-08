@@ -24,7 +24,7 @@
       'Top-Tier Sanitary Fittings',
     ],
     description:
-      'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, government bodies and luxury living.. for more details, communicate on WhatsApp 08115282917.',
+      'The pinnacle of smart living in Asokoro .. Abuja\'s most exclusive diplomatic enclave. Eight massive bedrooms, four living rooms, a private pool, gym, cinema, elevator, and full smart home integration across every room. Reserved strictly for diplomats, ambassadors, corporate institutions, government bodies and luxury living.. for more details, communicate on WhatsApp 08133410003.',
     annualRent: 150000000,
     cautionFee: 0,
     agencyFee: 0,

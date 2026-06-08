@@ -330,8 +330,8 @@ export default function PropertyDetailPage({ navigate, propertyId, fromPage }) {
                   </div>
                 </div>
                 <div className="pd__agent-contacts">
-                  <a href="tel:08115282917" className="pd__agent-contact">
-                    <Phone size={13} strokeWidth={1.5} />08115282917
+                  <a href="tel:08133410003" className="pd__agent-contact">
+                    <Phone size={13} strokeWidth={1.5} />08133410003
                   </a>
                   <a href="mailto:Jayjannel@gmail.com" className="pd__agent-contact">
                     <Mail size={13} strokeWidth={1.5} />Jayjannel@gmail.com
