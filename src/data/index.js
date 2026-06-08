@@ -694,7 +694,7 @@ export const faqs = [
     id: 4,
     category: 'Costs',
     q: 'What fees will I pay beyond the annual rent?',
-    a: 'Standard fees include: Caution Deposit (refundable at end of tenancy if there are no damages or outstanding service charges), Agency Fee (10% of annual rent), and Legal/Agreement Fee (10% of annual rent). All fees are clearly stated before you commit to anything. For an exclusive physical tour of 5+ properties, a charge of ₦100,000 applies. Optional and please general fee applies.',
+    a: 'Standard fees include: Caution Deposit (refundable at end of tenancy if there are no damages or outstanding service charges), Agency Fee (10% of annual rent), and Legal/Agreement Fee (10% of annual rent). All fees are clearly stated before you commit to anything. For an exclusive physical tour of 5+ properties, a charge of ₦100,000 applies. Optional and please general inspection fee applies.',
   },
   {
     id: 5,
