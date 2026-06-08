@@ -1,8 +1,9 @@
 ﻿import { useState, useEffect, useRef } from 'react'
-import { Users, Eye, ShieldCheck, Zap, Gem, MapPin } from 'lucide-react'
+import { Eye, ShieldCheck, Zap, Gem, MapPin } from 'lucide-react'
 import { properties, values, formatPrice, WA_BASE } from '../data'
 import heroImg from '../assets/JAY hero image.jpg'
 import certImg from '../assets/C jay.jpg'
+import gCompanyImg from '../assets/G-company.png'
 import HeroNav from '../components/HeroNav'
 const FEAT_VIDEOS = [
   'https://res.cloudinary.com/dqrssdcmu/video/upload/v1778335442/glamourj-featured-1.mp4',
@@ -258,7 +259,7 @@ export default function HomePage({ navigate, page }) {
           {/* Visual */}
           <div className="about-visual">
             <div className="about-visual__img">
-              <Users size={72} stroke="white" strokeWidth={1} style={{ opacity: 0.15 }} />
+              <img src={gCompanyImg} alt="Glamour J Properties" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
             </div>
             <div className="about-chips">
               <div className="about-chip">
