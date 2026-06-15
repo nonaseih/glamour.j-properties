@@ -45,7 +45,7 @@ const SOCIALS = [
   {
     label: 'WhatsApp',
     svg: WA_SVG,
-    href: `${WA_BASE}?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20property.`,
+    href: `${WA_BASE}?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20a%20property`,
   },
   {
     label: 'Instagram @exclusive_chateau',

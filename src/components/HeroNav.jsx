@@ -49,7 +49,7 @@ export default function HeroNav({ navigate, page }) {
     setMenuOpen(false)
   }
 
-  const waHref = `${WA_BASE}?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20rental%20property.`
+  const waHref = `${WA_BASE}?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20a%20property`
 
   return (
     <>

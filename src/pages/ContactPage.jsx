@@ -31,7 +31,7 @@ const TT_SVG = (
 )
 
 const SOCIALS = [
-  { label: 'WhatsApp',                handle: '0813 341 0003',          color: '#25D366', bg: 'rgba(37,211,102,0.12)',  svg: WA_SVG, href: WA_BASE + '?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20property.' },
+  { label: 'WhatsApp',                handle: '0813 341 0003',          color: '#25D366', bg: 'rgba(37,211,102,0.12)',  svg: WA_SVG, href: WA_BASE + '?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20a%20property' },
   { label: 'Instagram @exclusive_chateau', handle: '@exclusive_chateau',  color: '#E1306C', bg: 'rgba(225,48,108,0.1)',   svg: IG_SVG, href: 'https://www.instagram.com/exclusive_chateau?igsh=MTZhbGJjajBkMmtweg%3D%3D&utm_source=qr' },
   { label: 'Instagram @property_mgr',      handle: '@property_mgr',       color: '#E1306C', bg: 'rgba(225,48,108,0.1)',   svg: IG_SVG, href: 'https://www.instagram.com/property_mgr?igsh=c3F3NW4wamNmZm4y&utm_source=qr' },
   { label: 'Snapchat',                     handle: 'exclusive_chateau',    color: '#8a7200', bg: 'rgba(255,235,0,0.14)',   svg: SC_SVG, href: 'https://snapchat.com/t/qC3xViDh' },
