@@ -410,9 +410,9 @@ export default function ApplyPage({ navigate }) {
               </div>
               <div style={{ marginTop: '16px', padding: '12px', background: 'rgba(0,0,0,0.04)', borderRadius: '8px', fontSize: '0.82rem', lineHeight: 1.5 }}>
                 <div style={{ fontWeight: 600, marginBottom: '6px' }}>Payment Details</div>
-                <div>Account No: <strong>6312020162</strong></div>
+                <div>Account No: <strong>2227898570</strong></div>
                 <div>Name: <strong>Ede Janet Uzoamaka</strong></div>
-                <div>Bank: <strong>Fidelity Bank</strong></div>
+                <div>Bank: <strong>UBA</strong></div>
               </div>
             </div>
 
