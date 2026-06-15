@@ -48,11 +48,6 @@ const SOCIALS = [
     href: `${WA_BASE}?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20a%20property`,
   },
   {
-    label: 'Instagram @exclusive_chateau',
-    svg: IG_SVG,
-    href: 'https://www.instagram.com/exclusive_chateau?igsh=MTZhbGJjajBkMmtweg%3D%3D&utm_source=qr',
-  },
-  {
     label: 'Instagram @property_mgr',
     svg: IG_SVG,
     href: 'https://www.instagram.com/property_mgr?igsh=c3F3NW4wamNmZm4y&utm_source=qr',
