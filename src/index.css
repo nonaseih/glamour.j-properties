@@ -6156,6 +6156,29 @@ button.hero-stat__tag:hover { opacity: 0.82; }
   gap: 8px;
 }
 
+.cs-wall__rule {
+  width: 40px;
+  height: 1px;
+  background: rgba(30,16,8,0.15);
+  margin: 4px 0;
+}
+
+.cs-wall__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #25D366;
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.cs-wall__phone:hover { opacity: 0.75; }
+
 /* ══════════════════════════════════════════
    REVIEWS PAGE  (rv-*)
 ══════════════════════════════════════════ */
